@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+  RECEPTION
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  password     String
+  fullName     String
+  role         Role          @default(USER)
+  reservations Reservation[]
+}
+
+model ParkingSpot {
+  id           Int           @id @default(autoincrement())
+  spotNumber   String        @unique
+  zone         String
+  type         String
+  isActive     Boolean       @default(true)
+  reservations Reservation[]
+}
+
+model Reservation {
+  id           Int         @id @default(autoincrement())
+  startTime    DateTime
+  endTime      DateTime
+  qrCodeToken  String      @unique @default(uuid())
+  status       String      @default("ACTIVE")
+  userId       Int
+  user         User        @relation(fields: [userId], references: [id])
+  spotId       Int
+  spot         ParkingSpot @relation(fields: [spotId], references: [id])
+}
