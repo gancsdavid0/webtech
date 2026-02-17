@@ -1,7 +1,7 @@
 import {prisma} from "../../common/database/prisma.js";
-import type {RegisterDto} from "./user.dto.js";
+import type {RegisterDto} from "./auth.dto.js";
 
-export class UserRepository {
+export class AuthRepository {
     async create(data: RegisterDto & {passwordHash: string}) {
         return prisma.user.create({
             data: {

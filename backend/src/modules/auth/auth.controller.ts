@@ -1,10 +1,10 @@
 import type {Request, Response} from "express";
-import { UserService } from "./user.service.js";
-import {RegisterSchema, LoginSchema} from "./user.dto.js";
+import { AuthService } from "./auth.service.js";
+import {RegisterSchema, LoginSchema} from "./auth.dto.js";
 import { z } from "zod";
 
-export class UserController {
-    private service = new UserService();
+export class AuthController {
+    private service = new AuthService();
 
     async register(req: Request, res: Response){
         try {
@@ -42,6 +42,18 @@ export class UserController {
 
             const errorMessage = err instanceof Error ? err.message : 'Ismeretlen hiba történt';
             return res.status(401).json({ success: false, message: errorMessage });
+        }
+    }
+
+    async logout(req: Request, res: Response) {
+        try {
+            return res.status(200).json({
+                success: true,
+                message: "Sikeres kijelentkezés. Ne felejtsd el törölni a tokent a kliens oldalon!"
+            });
+        } catch (err) {
+            const errorMessage = err instanceof Error ? err.message : 'Hiba a kijelentkezés során';
+            return res.status(500).json({ success: false, message: errorMessage });
         }
     }
 }

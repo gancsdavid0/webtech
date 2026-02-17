@@ -1,10 +1,10 @@
-import { UserRepository } from "./user.repository.js";
-import type {LoginDto, RegisterDto} from "./user.dto.js";
+import { AuthRepository } from "./auth.repository.js";
+import type {LoginDto, RegisterDto} from "./auth.dto.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export class UserService {
-    private repo = new UserRepository();
+export class AuthService {
+    private repo = new AuthRepository();
     private JWT_SECRET = process.env.JWT_SECRET;
 
     async register(data: RegisterDto){
@@ -26,7 +26,7 @@ export class UserService {
         if (!isPasswordValid) throw new Error("Hibás email vagy jelszó.");
 
         if (!this.JWT_SECRET) {
-            console.error("HIBA: JWT_SECRET hiányzik a UserService-ből!");
+            console.error("HIBA: JWT_SECRET hiányzik a AuthService-ből!");
             throw new Error("Szerver konfigurációs hiba.");
         }
 

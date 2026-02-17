@@ -1,0 +1,204 @@
+{
+  "info": {
+    "_postman_id": "64fcfe04-f51e-495f-86b1-19f97924e7f1",
+    "name": "parkolo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "id": "f81fd3dd-726f-4017-91e7-03a1430744e3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"teszt@teszt.com\",\r\n    \"password\": \"123456\",\r\n    \"fullName\": \"Teljes Név\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_BASE}}/auth/register/",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();\r",
+                  "if (jsonData.token) {\r",
+                  "    pm.environment.set(\"token\", jsonData.token);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "id": "e36f1831-f28a-48ec-b304-39411560a1db"
+              }
+            }
+          ],
+          "id": "412b8cd7-2f0e-4d08-9284-afd67f600772",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"teszt@teszt.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_BASE}}/auth/login/",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "id": "a3faf44f-df3a-4baf-9460-8431aab8211e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"teszt@teszt.com\",\r\n    \"password\": \"123456\"\r\n}"
+            },
+            "url": {
+              "raw": "{{API_BASE}}/auth/logout/",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "auth",
+                "logout",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "abf1e9c8-9be4-4eff-aef8-84cd19f9eabe"
+    },
+    {
+      "name": "reservation",
+      "item": [
+        {
+          "name": "foglalás",
+          "id": "3dd72459-15df-4134-8f67-e302e84702c4",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"spotId\": 1,\r\n    \"startTime\": \"2026-05-10T10:00:00Z\",\r\n    \"endTime\": \"2026-05-10T12:00:00Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_BASE}}/reservation/",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "reservation",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "18b0860a-96fa-466b-9622-17c65b1d5327"
+    },
+    {
+      "name": "docs",
+      "id": "0d6283dc-785a-4a8f-b3f5-6082ade43b39",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:3000/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3000",
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "0da88851-6ff8-4861-bda5-524f5f5ca27e",
+      "key": "API_BASE",
+      "value": ""
+    }
+  ]
+}
