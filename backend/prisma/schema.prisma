@@ -59,7 +59,7 @@ model Reservation {
   @@index([spotId, startTime, endTime])
 }
 
-model ParkingHouse {
+model ParkingZone {
   id        Int           @id @default(autoincrement())
   name      String
   address   String
@@ -76,8 +76,8 @@ model ParkingSpot {
   type           SpotType      @default(NORMAL)
   isActive       Boolean       @default(true)
 
-  parkingHouseId Int
-  parkingHouse   ParkingHouse  @relation(fields: [parkingHouseId], references: [id], onDelete: Cascade)
+  parkingZoneId Int
+  parkingZone  ParkingZone  @relation(fields: [parkingZoneId], references: [id], onDelete: Cascade)
 
   reservations   Reservation[]
 }
@@ -87,10 +87,10 @@ model Pricing {
   pricePerHour   Int
   spotType       SpotType     @default(NORMAL) // Melyik típusra vonatkozik az ár
 
-  parkingHouseId Int
-  parkingHouse   ParkingHouse @relation(fields: [parkingHouseId], references: [id], onDelete: Cascade)
+  parkingZoneId Int
+  parkingZone   ParkingZone @relation(fields: [parkingZoneId], references: [id], onDelete: Cascade)
 
-  @@unique([parkingHouseId, spotType]) // Egy házban egy típusnak csak egy ára lehet
+  @@unique([parkingZoneId, spotType]) // Egy házban egy típusnak csak egy ára lehet
 }
 
 model Vehicle {
@@ -101,11 +101,4 @@ model Vehicle {
   ownerId      Int
   owner        User          @relation(fields: [ownerId], references: [id])
   reservations Reservation[]
-}
-
-model BlacklistedToken {
-  id        Int      @id @default(autoincrement())
-  token     String   @unique
-  expiresAt DateTime
-  createdAt DateTime @default(now())
 }

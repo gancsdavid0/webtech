@@ -22,11 +22,11 @@ export class CreateReservationHandler {
 
         const spot = await prisma.parkingSpot.findUnique({
             where: { id: spotId },
-            include: { parkingHouse: { include: { prices: true } } }
+            include: { parkingZone: { include: { prices: true } } }
         });
         if (!spot) throw new Error("A parkolóhely nem létezik.");
 
-        const pricing = spot.parkingHouse.prices.find(p => p.spotType === spot.type);
+        const pricing = spot.parkingZone.prices.find(p => p.spotType === spot.type);
         if (!pricing) throw new Error("Nincs ár meghatározva ehhez a típushoz.");
 
         const diffInMs = end.getTime() - start.getTime();

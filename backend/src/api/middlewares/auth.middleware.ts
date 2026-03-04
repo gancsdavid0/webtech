@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { prisma } from '../../infrastructure/database/prisma.js';
+import { redis } from '../../infrastructure/database/redis.js';
 
 // Definiáljuk a tokenben tárolt adatok szerkezetét
 interface JwtPayload {
@@ -27,12 +27,10 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
             return res.status(500).json({ success: false, message: "Szerver konfigurációs hiba." });
         }
 
-        const isBlacklisted = await prisma.blacklistedToken.findUnique({
-            where: { token }
-        });
+        const isBlacklisted = await redis.get(`blacklist:${token}`);
 
         if (isBlacklisted) {
-            return res.status(401).json({ success: false, message: 'A munkamenet lejárt. Jelentkezz be újra.' });
+            return res.status(401).json({ success: false, message: 'A token érvénytelenítve lett (Logout).' });
         }
 
         const decoded = jwt.verify(token, secret) as JwtPayload;
