@@ -6,6 +6,9 @@ export class CreateReservationHandler {
 
     async handle(command: any) {
         const { userId, spotId, startTime, endTime } = command;
+
+        if (!userId) throw new Error("A foglaláshoz be kell jelentkezni.");
+
         const start = new Date(startTime);
         const end = new Date(endTime);
 
@@ -28,8 +31,8 @@ export class CreateReservationHandler {
         return await this.repo.create({
             userId,
             spotId,
-            start,
-            end,
+            startTime: start,
+            endTime: end,
             totalPrice
         });
     }

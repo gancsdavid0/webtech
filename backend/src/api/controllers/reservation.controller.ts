@@ -5,9 +5,10 @@ export class ReservationController{
 
     async create(req: any, res: any) {
         try {
+            const userId = req.user.id;
             const result = await this.handler.handle({
                 ...req.body,
-                userId: req.user.id
+                userId: userId
             });
             res.status(201).json(result);
         } catch (err: any) {

@@ -147,7 +147,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"spotId\": 1,\r\n    \"startTime\": \"2026-05-10T10:00:00Z\",\r\n    \"endTime\": \"2026-05-10T12:00:00Z\"\r\n}",
+              "raw": "{\r\n    \"spotId\": 5,\r\n    \"startTime\": \"2026-05-10T10:00:00Z\",\r\n    \"endTime\": \"2026-05-10T12:00:00Z\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
