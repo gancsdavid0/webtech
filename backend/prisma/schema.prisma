@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -20,32 +19,93 @@ enum Role {
   RECEPTION
 }
 
+enum SpotType {
+  NORMAL
+  ELECTRIC
+  DISABLED
+}
+
+enum ReservationStatus {
+  ACTIVE
+  CANCELLED
+  COMPLETED
+}
+
 model User {
   id           Int           @id @default(autoincrement())
   email        String        @unique
   password     String
   fullName     String
   role         Role          @default(USER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
   reservations Reservation[]
-}
-
-model ParkingSpot {
-  id           Int           @id @default(autoincrement())
-  spotNumber   String        @unique
-  zone         String
-  type         String
-  isActive     Boolean       @default(true)
-  reservations Reservation[]
+  vehicles     Vehicle[]
 }
 
 model Reservation {
   id           Int         @id @default(autoincrement())
   startTime    DateTime
   endTime      DateTime
+  totalPrice   Int?
   qrCodeToken  String      @unique @default(uuid())
-  status       String      @default("ACTIVE")
+  status       ReservationStatus @default(ACTIVE)
   userId       Int
-  user         User        @relation(fields: [userId], references: [id])
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   spotId       Int
-  spot         ParkingSpot @relation(fields: [spotId], references: [id])
+  spot         ParkingSpot @relation(fields: [spotId], references: [id], onDelete: Cascade)
+  vehicleId    Int?
+  vehicle      Vehicle?    @relation(fields: [vehicleId], references: [id])
+  @@index([spotId, startTime, endTime])
+}
+
+model ParkingHouse {
+  id        Int           @id @default(autoincrement())
+  name      String
+  address   String
+  city      String        @default("Budapest")
+  spots     ParkingSpot[]
+  prices    Pricing[]
+  createdAt DateTime      @default(now())
+}
+
+model ParkingSpot {
+  id             Int           @id @default(autoincrement())
+  spotNumber     String        @unique
+  zone           String?
+  type           SpotType      @default(NORMAL)
+  isActive       Boolean       @default(true)
+
+  parkingHouseId Int
+  parkingHouse   ParkingHouse  @relation(fields: [parkingHouseId], references: [id], onDelete: Cascade)
+
+  reservations   Reservation[]
+}
+
+model Pricing {
+  id             Int          @id @default(autoincrement())
+  pricePerHour   Int
+  spotType       SpotType     @default(NORMAL) // Melyik típusra vonatkozik az ár
+
+  parkingHouseId Int
+  parkingHouse   ParkingHouse @relation(fields: [parkingHouseId], references: [id], onDelete: Cascade)
+
+  @@unique([parkingHouseId, spotType]) // Egy házban egy típusnak csak egy ára lehet
+}
+
+model Vehicle {
+  id           Int           @id @default(autoincrement())
+  licensePlate String        @unique
+  make         String?
+  model        String?
+  ownerId      Int
+  owner        User          @relation(fields: [ownerId], references: [id])
+  reservations Reservation[]
+}
+
+model BlacklistedToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
 }

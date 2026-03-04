@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { prisma } from '../../infrastructure/database/prisma.js';
 
 // Definiáljuk a tokenben tárolt adatok szerkezetét
 interface JwtPayload {
@@ -7,7 +8,7 @@ interface JwtPayload {
     role: string;
 }
 
-export const authenticate = (req: Request, res: Response, next: NextFunction) => {
+export const authenticate = async (req: Request, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];
 
@@ -24,6 +25,14 @@ export const authenticate = (req: Request, res: Response, next: NextFunction) =>
         if (!secret) {
             console.error("HIBA: JWT_SECRET nincs definiálva a környezeti változókban!");
             return res.status(500).json({ success: false, message: "Szerver konfigurációs hiba." });
+        }
+
+        const isBlacklisted = await prisma.blacklistedToken.findUnique({
+            where: { token }
+        });
+
+        if (isBlacklisted) {
+            return res.status(401).json({ success: false, message: 'A munkamenet lejárt. Jelentkezz be újra.' });
         }
 
         const decoded = jwt.verify(token, secret) as JwtPayload;

@@ -1,6 +1,6 @@
 import { Router} from 'express';
-import reservationRoutes from "./modules/reservation/reservation.routes.js";
-import authRoutes from "./modules/auth/auth.routes.js";
+import reservationRoutes from "./api/routes/reservation.routes.js";
+import authRoutes from "./api/routes/auth.routes.js";
 
 const router: Router = Router();
 

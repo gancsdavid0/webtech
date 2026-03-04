@@ -1,8 +1,8 @@
-import {prisma} from "../../common/database/prisma.js";
-import type {RegisterDto} from "./auth.dto.js";
+import {prisma} from "../database/prisma.js";
+import type {IAuthRepository} from '../../domain/repositories/auth.repository.interface.js';
 
-export class AuthRepository {
-    async create(data: RegisterDto & {passwordHash: string}) {
+export class AuthRepository implements IAuthRepository {
+    async create(data: { email: string; fullName: string; passwordHash: string }) {
         return prisma.user.create({
             data: {
                 email: data.email,
