@@ -1,16 +1,21 @@
 import { ReservationRepository } from '../../infrastructure/repositories/reservation.repository.js';
 import { prisma } from '../../infrastructure/database/prisma.js';
+import type {CreateReservationCommand} from "../commands/CreateReservationCommand.js";
 
 export class CreateReservationHandler {
     private repo = new ReservationRepository();
 
-    async handle(command: any) {
+    async handle(command: CreateReservationCommand) {
         const { userId, spotId, startTime, endTime } = command;
 
         if (!userId) throw new Error("A foglaláshoz be kell jelentkezni.");
 
         const start = new Date(startTime);
         const end = new Date(endTime);
+
+        if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+            throw new Error("Érvénytelen dátum formátum! Kérlek, használj ISO formátumot (pl. 2026-03-10T10:00:00Z).");
+        }
 
         const overlapping = await this.repo.findOverLapping(spotId, start, end);
         if (overlapping) throw new Error("A hely már foglalt!");
