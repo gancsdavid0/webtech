@@ -1,5 +1,6 @@
 // Az összes fordítás
 export const translations = {
+  // Magyar nyelv
   HU: {
     title: "Találd meg a tökéletes parkolóhelyet",
     subtitle: "másodpercek alatt!",
@@ -26,9 +27,12 @@ export const translations = {
     error_title: "Hiba történt!",
     error_server: "A szerver nem elérhető. Ellenőrizze a kapcsolatot!",
     try_again: "Próbálja újra",
-    back_home: "Vissza a főoldalra"
+    back_home: "Vissza a főoldalra",
+    logout: "Kijelentkezés",
+    book_now: "Parkolóhely foglalása"
   },
 
+  // Angol nyelv
   EN: {
     title: "Find the perfect parking spot",
     subtitle: "in seconds!",
@@ -55,9 +59,12 @@ export const translations = {
     error_title: "An error occurred!",
     error_server: "Server unreachable. Check your connection!",
     try_again: "Try again",
-    back_home: "Back to Home"
+    back_home: "Back to Home",
+    logout: "Logout",
+    book_now: "Book a Parking Space"
   },
 
+  // Japán nyelv
   JP: {
     title: "最適な駐車場を",
     subtitle: "すぐに見つけましょう！",
@@ -84,6 +91,8 @@ export const translations = {
     error_title: "エラーが発生しました！",
     error_server: "サーバーに接続できません。接続を確認してください。",
     try_again: "もう一度試す",
-    back_home: "ホームに戻る"
+    back_home: "ホームに戻る",
+    logout: "ログアウト",
+    book_now: "駐車場を予約する"
   }
 };

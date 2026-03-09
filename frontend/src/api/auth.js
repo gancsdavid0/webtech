@@ -37,5 +37,18 @@ export const authService = {
     } catch (error) {
       throw new Error('Hálózati hiba történt.');
     }
+  },
+
+  // Kijelentkezés hívása
+  logout: async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/logout`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+      return response.ok;
+    } catch (error) {
+      return false;
+    }
   }
 };

@@ -10,7 +10,7 @@ const Error = () => {
   const t = translations[currentLang.code];
 
   const displayMessage = location.state?.message || t.error_server;
-  const backTo = location.state?.from || '/'; 
+  const backTo = location.state?.from || '/';
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-6">
