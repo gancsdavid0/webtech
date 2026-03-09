@@ -103,9 +103,6 @@ const Register = () => {
           <p className="text-slate-600 text-sm">
             {t.has_account} <button onClick={() => navigate('/login')} className="text-indigo-600 font-bold hover:underline">{t.login}</button>
           </p>
-          <div className="pt-4 border-t border-slate-100">
-            <button onClick={() => navigate('/')} className="text-slate-400 hover:text-slate-600 text-sm font-medium transition">{t.back_to_home}</button>
-          </div>
         </div>
       </div>
     </div>

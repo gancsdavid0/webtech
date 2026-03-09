@@ -2,6 +2,7 @@
 export const translations = {
   // Magyar nyelv
   HU: {
+    webtitle: "Főoldal",
     title: "Találd meg a tökéletes parkolóhelyet",
     subtitle: "másodpercek alatt!",
     description: "Foglalj biztonságos parkolót előre, és kerüld el a városi körözést. Egyszerű, gyors és megbízható megoldás minden sofőrnek.",
@@ -34,6 +35,7 @@ export const translations = {
 
   // Angol nyelv
   EN: {
+    webtitle: "Home",
     title: "Find the perfect parking spot",
     subtitle: "in seconds!",
     description: "Book a secure parking spot in advance and avoid driving in circles. Simple, fast, and reliable solution for every driver.",
@@ -66,6 +68,7 @@ export const translations = {
 
   // Japán nyelv
   JP: {
+    webtitle: "ホーム",
     title: "最適な駐車場を",
     subtitle: "すぐに見つけましょう！",
     description: "事前に安全な駐車場を予約して, 街中をぐるぐる回るのを避けましょう。すべてのドライバーにとってシンプルで速く, 信頼できるソリューションです。",
