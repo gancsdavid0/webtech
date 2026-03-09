@@ -20,7 +20,13 @@ export const translations = {
     placeholder_name: "Minta János",
     placeholder_email: "valami@email.hu",
     placeholder_pass: "••••••••",
-    password_mismatch: "A két jelszó nem egyezik meg!"
+    password_mismatch: "A két jelszó nem egyezik meg!",
+    reg_success_title: "Sikeres regisztráció!",
+    reg_success_desc: "Most már bejelentkezhet az új fiókjával.",
+    error_title: "Hiba történt!",
+    error_server: "A szerver nem elérhető. Ellenőrizze a kapcsolatot!",
+    try_again: "Próbálja újra",
+    back_home: "Vissza a főoldalra"
   },
 
   EN: {
@@ -43,7 +49,13 @@ export const translations = {
     placeholder_name: "John Doe",
     placeholder_email: "example@email.com",
     placeholder_pass: "••••••••",
-    password_mismatch: "Passwords do not match!"
+    password_mismatch: "Passwords do not match!",
+    reg_success_title: "Registration Successful!",
+    reg_success_desc: "You can now log in with your new account.",
+    error_title: "An error occurred!",
+    error_server: "Server unreachable. Check your connection!",
+    try_again: "Try again",
+    back_home: "Back to Home"
   },
 
   JP: {
@@ -66,6 +78,12 @@ export const translations = {
     placeholder_name: "田中 太郎",
     placeholder_email: "example@email.com",
     placeholder_pass: "••••••••",
-    password_mismatch: "パスワードが一致しません！"
+    password_mismatch: "パスワードが一致しません！",
+    reg_success_title: "登録が完了しました！",
+    reg_success_desc: "新しいアカウントでログインできるようになりました。",
+    error_title: "エラーが発生しました！",
+    error_server: "サーバーに接続できません。接続を確認してください。",
+    try_again: "もう一度試す",
+    back_home: "ホームに戻る"
   }
 };
