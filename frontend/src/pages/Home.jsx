@@ -35,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     // TAB szöveg
-    document.title = `ParkolóGo | ${t.webtitle || 'Home'}`;
+    document.title = `ParkolóGo | ${t.tabtitle || 'Home'}`;
   }, [currentLang, t.title]);
 
   // Kijelentkezés
