@@ -8,7 +8,19 @@ export const translations = {
     login_subtitle: "Kérjük, jelentkezzen be parkoló foglalásához, vagy meglévő foglalásai kezeléséhez",
     email: "E-mail",
     password: "Jelszó",
-    back_to_home: "← Vissza a kezdőlapra"
+    back_to_home: "← Vissza a kezdőlapra",
+    register: "Regisztráció",
+    register_subtitle: "Hozzon létre fiókot a gyorsabb parkoláshoz!",
+    full_name: "Teljes név",
+    confirm_password: "Jelszó megerősítése",
+    no_account: "Még nincs fiókja?",
+    has_account: "Már van fiókja?",
+    back_to_home: "← Vissza a kezdőlapra",
+    confirm_password: "Jelszó megerősítése",
+    placeholder_name: "Minta János",
+    placeholder_email: "valami@email.hu",
+    placeholder_pass: "••••••••",
+    password_mismatch: "A két jelszó nem egyezik meg!"
   },
 
   EN: {
@@ -19,7 +31,19 @@ export const translations = {
     login_subtitle: "Please log in to book a parking space or manage your existing bookings",
     email: "Email",
     password: "Password",
-    back_to_home: "← Back to Home"
+    back_to_home: "← Back to Home",
+    register: "Register",
+    register_subtitle: "Create an account for faster parking!",
+    full_name: "Full Name",
+    confirm_password: "Confirm Password",
+    no_account: "Don't have an account?",
+    has_account: "Already have an account?",
+    back_to_home: "← Back to Home",
+    confirm_password: "Confirm Password",
+    placeholder_name: "John Doe",
+    placeholder_email: "example@email.com",
+    placeholder_pass: "••••••••",
+    password_mismatch: "Passwords do not match!"
   },
 
   JP: {
@@ -30,6 +54,18 @@ export const translations = {
     login_subtitle: "駐車場の予約や予約管理を行うには、ログインしてください",
     email: "メールアドレス",
     password: "パスワード",
-    back_to_home: "← ホームに戻る"
+    back_to_home: "← ホームに戻る",
+    register: "新規登録",
+    register_subtitle: "よりスムーズな予約のためにアカウントを作成しましょう！",
+    full_name: "氏名",
+    confirm_password: "パスワード（確認）",
+    no_account: "アカウントをお持ちでないですか？",
+    has_account: "すでにアカウントをお持ちですか？",
+    back_to_home: "← ホームに戻る",
+    confirm_password: "パスワード（確認）",
+    placeholder_name: "田中 太郎",
+    placeholder_email: "example@email.com",
+    placeholder_pass: "••••••••",
+    password_mismatch: "パスワードが一致しません！"
   }
 };

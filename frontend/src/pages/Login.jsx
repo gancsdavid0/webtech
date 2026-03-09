@@ -25,7 +25,7 @@ const Login = () => {
             <input 
               type="email" 
               className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition"
-              placeholder="mail@mail.example"
+              placeholder="example@email.com"
             />
           </div>
           <div className="relative">
@@ -56,6 +56,17 @@ const Login = () => {
           >
             {t.back_to_home}
           </button>
+        </div>
+        <div className="mt-6 text-center text-sm">
+            <p className="text-slate-600">
+                {t.no_account}{' '}
+                <button 
+                onClick={() => navigate('/register')} 
+                className="text-indigo-600 font-bold hover:underline"
+                >
+                {t.register}
+                </button>
+            </p>
         </div>
       </div>
     </div>
