@@ -29,3 +29,22 @@ npx prisma generate
   
 # Fejlesztési Munkafolyamat  
 docker compose up --watch
+```
+
+# 4. Frontend futtatása
+```bash
+# Node futtatása
+npm run dev
+```
+
+# Jelenleg elkészült funkciók
+- A felhasználó be tud jelentkezni
+- A felhasználó tud regisztrálni
+- A felhasználó ki tud jelentkezni
+
+# Jelenleg elkészült oldalak
+- Főoldal
+- Bejelentkezés oldal
+- Regisztráció oldal
+- Sikeres bejelentkezés / regisztráció oldal
+- Hiba a bejelentkezéskor / regisztrációkor oldal
