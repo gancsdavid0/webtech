@@ -19,7 +19,8 @@ const Home = () => {
   const languages = [
     { code: 'HU', name: 'Magyar' },
     { code: 'EN', name: 'English' },
-    { code: 'JP', name: '日本語'}
+    { code: 'JP', name: '日本語'},
+    { code: 'ID', name: 'Indonesia'}
   ];
 
   // Bejelentkezési állapot ellenőrzése
