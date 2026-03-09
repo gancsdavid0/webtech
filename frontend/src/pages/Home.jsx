@@ -1,28 +1,76 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
+import { translations } from '../translations.js';
+import { useLanguage } from '../context/LanguageContext';
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
+  // Globálisan kiválasztott nyelv
+  const { currentLang, setCurrentLang } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
+
+  const t = translations[currentLang.code];
+
+  const languages = [
+    { code: 'HU', name: 'Magyar' },
+    { code: 'EN', name: 'English' },
+    { code: 'JP', name: '日本語'}
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm sticky top-0 z-50">
         <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-indigo-600">ParkolóGo</h1>
-          <button onClick={() => navigate('/login')} className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition">
-            Bejelentkezés
-          </button>
+          
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <button 
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100 transition text-slate-700 font-medium"
+              >
+                <span>{currentLang.name}</span>
+                <ChevronDown size={16} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-slate-100 rounded-xl shadow-xl z-50 overflow-hidden">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        // Globális nyelállítás
+                        setCurrentLang(lang);
+                        setLangOpen(false);
+                      }}
+                      className="w-full flex items-center px-4 py-3 hover:bg-indigo-50 text-slate-700 transition text-left font-medium"
+                    >
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button 
+              onClick={() => navigate('/login')} 
+              className="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition font-medium"
+            >
+              {t.login}
+            </button>
+          </div>
         </nav>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-5xl font-extrabold text-slate-900 mb-6">
-          Találd meg a tökéletes parkolóhelyet <br /> 
-          <span className="text-indigo-600">másodpercek alatt!</span>
+        <h2 className="text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+          {t.title} <br /> 
+          <span className="text-indigo-600">{t.subtitle}</span>
         </h2>
-        <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-          Foglalj biztonságos parkolót előre, és kerüld el a városi körözést. 
-          Egyszerű, gyors és megbízható megoldás minden sofőrnek.
+        <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto font-medium">
+          {t.description}
         </p>
         
         {/* Ide kerül egy olyan rész ami kilistázza milyen helyszíneken vannak parkolók */}
