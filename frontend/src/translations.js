@@ -3,6 +3,7 @@ export const translations = {
   // Magyar nyelv
   HU: {
     tabtitle: "Főoldal",
+    project_name: "Webtechnológia- és Webalkalmazás fejlesztés projekt",
     title: "Találd meg a tökéletes parkolóhelyet",
     subtitle: "másodpercek alatt!",
     description: "Foglalj biztonságos parkolót előre, és kerüld el a városi körözést. Egyszerű, gyors és megbízható megoldás minden sofőrnek.",
@@ -35,6 +36,7 @@ export const translations = {
   // Angol nyelv
   EN: {
     tabtitle: "Home",
+    project_name: "Web technology and Web application development project",
     title: "Find the perfect parking spot",
     subtitle: "in seconds!",
     description: "Book a secure parking spot in advance and avoid driving in circles. Simple, fast, and reliable solution for every driver.",
@@ -67,6 +69,7 @@ export const translations = {
   // Japán nyelv
   JP: {
     tabtitle: "ホーム",
+    project_name: "WebテクノロジーとWebアプリケーション開発プロジェクト",
     title: "最適な駐車場を",
     subtitle: "すぐに見つけましょう！",
     description: "事前に安全な駐車場を予約して, 街中をぐるぐる回るのを避けましょう。すべてのドライバーにとってシンプルで速く, 信頼できるソリューションです。",
@@ -99,6 +102,7 @@ export const translations = {
   // Indonéz nyelv
   ID: {
     tabtitle: "Halaman utama",
+    project_name: "Proyek pengembangan teknologi web dan Aplikasi web.",
     title: "Temukan tempat parkir yang sempurna",
     subtitle: "dalam hitungan detik!",
     description: "Pesan tempat parkir yang aman terlebih dahulu dan hindari parkir di kota. Solusi sederhana, cepat, dan andal untuk semua pengemudi.",

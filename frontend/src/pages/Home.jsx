@@ -62,9 +62,20 @@ const Home = () => {
         
         <header className="bg-white/90 shadow-sm sticky top-0 z-50 border-b border-slate-100">
           <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-indigo-600 cursor-pointer" onClick={() => navigate('/')}>
-              ParkolóGo
-            </h1>
+            {/* LOGÓ ÉS NÉV */}
+            <div 
+              className="flex items-center gap-3 cursor-pointer group" 
+              onClick={() => navigate('/')}
+            >
+              <img 
+                src="/webicon.png" 
+                alt="ParkolóGo Logo" 
+                className="h-10 w-10 rounded-lg object-contain transition-transform group-hover:scale-105" 
+              />
+              <h1 className="text-2xl font-bold text-indigo-600">
+                ParkolóGo
+              </h1>
+            </div>
             
             <div className="flex items-center gap-4">
               <div className="relative">
@@ -131,6 +142,9 @@ const Home = () => {
             {t.description}
           </p>
         </main>
+        <footer className="absolute bottom-4 left-0 right-0 text-center text-slate-700 font-medium pointer-events-none">
+          <p>&copy; {new Date().getFullYear()} Sipőcz Ádám, Gáncs Dávid - {t.project_name}</p>
+        </footer>
       </div>
     </div>
   );
