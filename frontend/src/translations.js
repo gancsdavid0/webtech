@@ -28,7 +28,8 @@ export const translations = {
     try_again: "Próbálja újra",
     back_home: "Vissza a főoldalra",
     logout: "Kijelentkezés",
-    book_now: "Parkolóhely foglalása"
+    book_now: "Parkolóhely foglalása",
+    parking_areas: "Parkolóterületek"
   },
 
   // Angol nyelv
@@ -59,7 +60,8 @@ export const translations = {
     try_again: "Try again",
     back_home: "Back to Home",
     logout: "Logout",
-    book_now: "Book a Parking Space"
+    book_now: "Book a Parking Space",
+    parking_areas: "Parking areas"
   },
 
   // Japán nyelv
@@ -90,7 +92,8 @@ export const translations = {
     try_again: "もう一度試す",
     back_home: "ホームに戻る",
     logout: "ログアウト",
-    book_now: "駐車場を予約する"
+    book_now: "駐車場を予約する",
+    parking_areas: "駐車場"
   },
 
   // Indonéz nyelv
@@ -121,6 +124,7 @@ export const translations = {
     try_again: "Silakan coba lagi",
     back_home: "Kembali ke halaman utama",
     logout: "Check-out",
-    book_now: "Reservasi tempat parkir"
+    book_now: "Reservasi tempat parkir",
+    parking_areas: "Area parkir"
   }
 };

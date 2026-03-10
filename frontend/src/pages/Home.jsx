@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, CalendarDays } from 'lucide-react';
+import { ChevronDown, CalendarDays, MapPin } from 'lucide-react';
 import { translations } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext';
 import { authService } from '../api/auth';
@@ -93,6 +93,15 @@ const Home = () => {
                   </div>
                 )}
               </div>
+
+              {/* Navigációs menü */}
+              <button 
+                onClick={() => navigate('/parking_lots')} 
+                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-100/50 transition text-slate-700 font-medium"
+              >
+                <MapPin size={18} className="text-indigo-600" />
+                <span>{t.parking_areas}</span>
+              </button>
 
               {isLoggedIn ? (
                 <div className="flex items-center gap-3">
