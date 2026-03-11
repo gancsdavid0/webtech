@@ -15,7 +15,8 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     { code: 'HU', name: 'Magyar' },
     { code: 'EN', name: 'English' },
     { code: 'JP', name: '日本語'},
-    { code: 'ID', name: 'Indonesia'}
+    { code: 'ID', name: 'Indonesia'},
+    { code: 'DE', name: 'Deutsch'}
   ];
 
   const handleLogout = async () => {

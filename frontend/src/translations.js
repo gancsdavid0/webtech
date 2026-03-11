@@ -130,5 +130,38 @@ export const translations = {
     logout: "Check-out",
     book_now: "Reservasi tempat parkir",
     parking_areas: "Area parkir"
+  },
+
+  // Német nyelv
+  DE: {
+    tabtitle: "Hauptseite",
+    project_name: "Webtechnologie- und Webanwendungsentwicklungsprojekt",
+    title: "Finden Sie den perfekten Parkplatz",
+    subtitle: "in Sekunden!",
+    description: "Buchen Sie rechtzeitig einen sicheren Parkplatz und vermeiden Sie den Stadtverkehr. Eine einfache, schnelle und zuverlässige Lösung für jeden Autofahrer. Damit nicht nur die Fahrt, sondern auch das Parken zum Erlebnis wird.",
+    login: "Login",
+    login_subtitle: "Bitte melden Sie sich an, um einen Parkplatz zu buchen oder Ihre bestehenden Reservierungen zu verwalten.",
+    email: "E-mail",
+    password: "Passwort",
+    back_to_home: "← Zurück zur Startseite",
+    register: "Anmeldung",
+    register_subtitle: "Erstellen Sie ein Konto für schnelleres Parken!",
+    full_name: "Vollständiger Name",
+    confirm_password: "Passwort bestätigen",
+    no_account: "Sie haben noch kein Konto?",
+    has_account: "Sie haben bereits ein Konto?",
+    placeholder_name: "Probieren Sie John",
+    placeholder_email: "beispiel@email.hu",
+    placeholder_pass: "••••••••",
+    password_mismatch: "Die beiden Passwörter stimmen nicht überein!",
+    reg_success_title: "Erfolgreiche Registrierung!",
+    reg_success_desc: "Sie können sich jetzt mit Ihrem neuen Konto anmelden.",
+    error_title: "Es ist ein Fehler aufgetreten!",
+    error_server: "Der Server ist nicht erreichbar. Überprüfen Sie Ihre Verbindung!",
+    try_again: "Bitte versuchen Sie es erneut",
+    back_home: "Zurück zur Hauptseite",
+    logout: "Abmeldung",
+    book_now: "Parkplatzreservierung",
+    parking_areas: "Parkplätze"
   }
 };
