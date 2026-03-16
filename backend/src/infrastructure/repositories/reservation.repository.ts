@@ -1,15 +1,35 @@
 import {prisma} from "../database/prisma.js";
-import type { IReservationRepository, CreateReservationData } from '../../domain/repositories/reservation.repository.interface.js';
+import type { IReservationRepository, CreateReservationData } from '../../domain/irepositories/reservation.repository.interface.js';
 import type { Reservation } from "@prisma/client";
+import { ReservationStatus } from "@prisma/client";
 
 export class ReservationRepository implements IReservationRepository {
-    findAllByUserId(userId: number): Promise<Reservation[]> {
-        throw new Error("Method not implemented.");
+    async findAllReservationsByUserId(userId: number): Promise<Reservation[]> {
+        return prisma.reservation.findMany({
+            where: {
+                userId : userId
+            },
+        })
     }
-    findById(id: number): Promise<Reservation | null> {
-        throw new Error("Method not implemented.");
+
+    async findReservationById(id: number){
+        return prisma.reservation.findUnique({
+            where: {
+                id : id
+            },
+        })
     }
-    async create(data: CreateReservationData) {
+
+    async findAllActiveReservationsByUserId(userId: number){
+        return prisma.reservation.findMany({
+            where: {
+                userId : userId,
+                status : ReservationStatus.ACTIVE
+            }
+        })
+    }
+
+    async create(data: CreateReservationData)  {
         return prisma.reservation.create({
             data: {
                 userId: data.userId,

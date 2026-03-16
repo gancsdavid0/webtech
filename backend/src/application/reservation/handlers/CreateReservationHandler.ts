@@ -1,5 +1,5 @@
-import { ReservationRepository } from '../../infrastructure/repositories/reservation.repository.js';
-import { prisma } from '../../infrastructure/database/prisma.js';
+import { ReservationRepository } from '../../../infrastructure/repositories/reservation.repository.js';
+import { prisma } from '../../../infrastructure/database/prisma.js';
 import type {CreateReservationCommand} from "../commands/CreateReservationCommand.js";
 
 export class CreateReservationHandler {

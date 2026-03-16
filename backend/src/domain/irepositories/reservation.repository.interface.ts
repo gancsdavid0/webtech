@@ -23,10 +23,12 @@ export interface IReservationRepository {
     /**
      * Egy adott felhasználó összes foglalásának lekérése.
      */
-    findAllByUserId(userId: number): Promise<Reservation[]>;
+    findAllReservationsByUserId(userId: number): Promise<Reservation[]>;
 
     /**
      * Foglalás keresése ID alapján.
      */
-    findById(id: number): Promise<Reservation | null>;
+    findReservationById(id: number): Promise<Reservation | null>;
+
+    findAllActiveReservationsByUserId(userId: number): Promise<Reservation[]>;
 }

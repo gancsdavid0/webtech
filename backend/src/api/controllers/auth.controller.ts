@@ -1,7 +1,7 @@
 import type {Request, Response} from "express";
-import { LoginHandler } from '../../application/handlers/LoginHandler.js';
-import { RegisterHandler } from '../../application/handlers/RegisterHandler.js';
-import { LogoutHandler } from '../../application/handlers/LogoutHandler.js';
+import { LoginHandler } from '../../application/auth/handlers/LoginHandler.js';
+import { RegisterHandler } from '../../application/auth/handlers/RegisterHandler.js';
+import { LogoutHandler } from '../../application/auth/handlers/LogoutHandler.js';
 import { z } from "zod";
 
 export class AuthController {

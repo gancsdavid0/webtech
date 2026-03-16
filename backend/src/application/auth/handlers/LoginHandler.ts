@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { AuthRepository } from '../../infrastructure/repositories/auth.repository.js';
-import { LoginSchema } from '../../domain/dtos/auth.dto.js';
+import { AuthRepository } from '../../../infrastructure/repositories/auth.repository.js';
+import { LoginSchema } from '../../../domain/dtos/auth.dto.js';
 
 export class LoginHandler {
     private repo = new AuthRepository();

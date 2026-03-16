@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
-import { AuthRepository } from '../../infrastructure/repositories/auth.repository.js';
-import { RegisterSchema } from '../../domain/dtos/auth.dto.js';
+import { AuthRepository } from '../../../infrastructure/repositories/auth.repository.js';
+import { RegisterSchema } from '../../../domain/dtos/auth.dto.js';
 
 export class RegisterHandler {
     private repo = new AuthRepository();

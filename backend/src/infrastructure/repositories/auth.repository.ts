@@ -1,5 +1,5 @@
 import {prisma} from "../database/prisma.js";
-import type {IAuthRepository} from '../../domain/repositories/auth.repository.interface.js';
+import type {IAuthRepository} from '../../domain/irepositories/auth.repository.interface.js';
 
 export class AuthRepository implements IAuthRepository {
     async create(data: { email: string; fullName: string; passwordHash: string }) {

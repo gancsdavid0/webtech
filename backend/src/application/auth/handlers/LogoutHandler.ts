@@ -1,6 +1,6 @@
-import { LogoutSchema } from '../../domain/dtos/auth.dto.js';
+import { LogoutSchema } from '../../../domain/dtos/auth.dto.js';
 import jwt from 'jsonwebtoken';
-import { redis } from '../../infrastructure/database/redis.js';
+import { redis } from '../../../infrastructure/database/redis.js';
 
 export class LogoutHandler {
     async handle(rawData: unknown) {
