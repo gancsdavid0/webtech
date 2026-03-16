@@ -30,7 +30,10 @@ export const translations = {
     back_home: "Vissza a főoldalra",
     logout: "Kijelentkezés",
     book_now: "Parkolóhely foglalása",
-    parking_areas: "Parkolóterületek"
+    parking_areas: "Parkolóterületek",
+    logged_in_as: "Bejelentkezve, mint:",
+    profile_settings: "Profil beállítások",
+    my_reservations: "Foglalásaim"
   },
 
   // Angol nyelv
@@ -63,7 +66,10 @@ export const translations = {
     back_home: "Back to Home",
     logout: "Logout",
     book_now: "Book a Parking Space",
-    parking_areas: "Parking areas"
+    parking_areas: "Parking areas",
+    logged_in_as: "Logged in as:",
+    profile_settings: "Profile settings",
+    my_reservations: "My reservations"
   },
 
   // Japán nyelv
@@ -96,7 +102,10 @@ export const translations = {
     back_home: "ホームに戻る",
     logout: "ログアウト",
     book_now: "駐車場を予約する",
-    parking_areas: "駐車場"
+    parking_areas: "駐車場",
+    logged_in_as: "ログインユーザー:",
+    profile_settings: "プロファイル設定",
+    my_reservations: "私の予約"
   },
 
   // Indonéz nyelv
@@ -129,7 +138,10 @@ export const translations = {
     back_home: "Kembali ke halaman utama",
     logout: "Check-out",
     book_now: "Reservasi tempat parkir",
-    parking_areas: "Area parkir"
+    parking_areas: "Area parkir",
+    logged_in_as: "Masuk sebagai:",
+    profile_settings: "Pengaturan profil",
+    my_reservations: "Reservasi saya"
   },
 
   // Német nyelv
@@ -162,6 +174,9 @@ export const translations = {
     back_home: "Zurück zur Hauptseite",
     logout: "Abmeldung",
     book_now: "Parkplatzreservierung",
-    parking_areas: "Parkplätze"
+    parking_areas: "Parkplätze",
+    logged_in_as: "Angemeldet als:",
+    profile_settings: "Profileinstellungen",
+    my_reservations: "Meine Reservierungen"
   }
 };

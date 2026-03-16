@@ -6,7 +6,7 @@ import { authService } from '../../api/auth';
 import LanguageSelector from '../common/LanguageSelector';
 import NavButton from '../common/NavButton';
 import ActionButton from '../common/ActionButton';
-import UserMenu from '../common/UserMenu'; // Új import
+import UserMenu from '../common/UserMenu';
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
