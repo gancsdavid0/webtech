@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { CalendarDays, MapPin, LogOut } from 'lucide-react';
+import { CalendarDays, MapPin } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../translations.js';
 import { authService } from '../../api/auth';
 import LanguageSelector from '../common/LanguageSelector';
 import NavButton from '../common/NavButton';
 import ActionButton from '../common/ActionButton';
+import UserMenu from '../common/UserMenu'; // Új import
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
       console.error("Logout hiba:", error);
     } finally {
       localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('user'); 
       setIsLoggedIn(false);
       navigate('/');
     }
@@ -37,14 +39,14 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           {/* Nyelvválasztó */}
           <LanguageSelector />
 
-          {/* Parkolóterületek gomb*/}
+          {/* Parkolóterületek gomb */}
           <NavButton 
             onClick={() => navigate('/parking_areas')} 
             icon={MapPin} 
             label={t.parking_areas} 
           />
 
-          {/* Gombok a navigációs sávon */}
+          {/* Dinamikus gombok állapot alapjan */}
           {isLoggedIn ? (
             <div className="flex items-center gap-3">
               <ActionButton 
@@ -53,12 +55,8 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                 label={t.book_now}
                 className="hidden sm:flex"
               />
-              <ActionButton 
-                onClick={handleLogout}
-                icon={LogOut} 
-                label={t.logout} 
-                variant="red"
-              />
+              {/* Profil ikon és lenyíló menü */}
+              <UserMenu onLogout={handleLogout} />
             </div>
           ) : (
             <ActionButton 

@@ -5,7 +5,7 @@ import { translations } from '../translations.js';
 import { useLanguage } from '../context/LanguageContext';
 import { authService } from '../api/auth';
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
   const { currentLang } = useLanguage();
   const t = translations[currentLang.code];
@@ -29,24 +29,28 @@ const Login = () => {
       if (ok) {
         localStorage.setItem('isLoggedIn', 'true'); 
         
-        // Visszairányítás a főoldalra
+        if (data.user) {
+          const userToSave = {
+            ...data.user,
+            token: data.token 
+          };
+          localStorage.setItem('user', JSON.stringify(userToSave));
+        }
+
+        if (setIsLoggedIn) setIsLoggedIn(true);
+
         navigate('/');
+        window.location.reload();
       } else {
         // Hibás adatok esetén
         navigate('/error', { 
-          state: { 
-            message: data.message, 
-            from: '/login' 
-          } 
+          state: { message: data?.message || "Hibás bejelentkezési adatok", from: '/login' } 
         });
       }
     } catch (err) {
       // Hálózati hiba esetén
       navigate('/error', { 
-        state: { 
-          message: t.error_server, 
-          from: '/login' 
-        } 
+        state: { message: t.error_server, from: '/login' } 
       });
     } finally {
       setLoading(false);
@@ -64,9 +68,7 @@ const Login = () => {
         <form className="space-y-5" onSubmit={handleLogin}>
           {/* Email mező */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
-              {t.email}
-            </label>
+            <label className="block text-sm font-semibold text-slate-700 mb-1">{t.email}</label>
             <input 
               type="email" 
               required
@@ -79,9 +81,7 @@ const Login = () => {
           
           {/* Jelszó mező szem ikonnal */}
           <div className="relative">
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
-              {t.password}
-            </label>
+            <label className="block text-sm font-semibold text-slate-700 mb-1">{t.password}</label>
             <input 
               type={showPassword ? "text" : "password"} 
               required
@@ -115,19 +115,9 @@ const Login = () => {
 
         <div className="mt-8 pt-6 border-t border-slate-100 text-center space-y-4">
           <p className="text-slate-600 text-sm">
-            {t.no_account}{' '}
-            <button 
-              onClick={() => navigate('/register')} 
-              className="text-indigo-600 font-bold hover:underline"
-            >
-              {t.register}
-            </button>
+            {t.no_account} <button onClick={() => navigate('/register')} className="text-indigo-600 font-bold hover:underline">{t.register}</button>
           </p>
-          
-          <button 
-            onClick={() => navigate('/')} 
-            className="text-slate-400 hover:text-slate-600 text-xs font-medium transition-colors"
-          >
+          <button onClick={() => navigate('/')} className="text-slate-400 hover:text-slate-600 text-xs font-medium transition-colors">
             {t.back_to_home}
           </button>
         </div>
