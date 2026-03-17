@@ -34,7 +34,16 @@ export const translations = {
     logged_in_as: "Bejelentkezve, mint:",
     profile_settings: "Profil beállítások",
     my_reservations: "Foglalásaim",
-    profile: "Profil"
+    profile: "Profil",
+    edit_profile: "Adatok módosítása",
+    account_status: "Profil állapota",
+    confirmed: "Megerősítve - Aktív",
+    new_password: "Új jelszó",
+    cancel: "Mégsem",
+    save: "Mentés",
+    profile_update_success: "Profil sikeresen frissítve!",
+    profile_update_error: "Sikertelen mentés!",
+    missing_id_error: "Hiba: Hiányzó azonosító!"
   },
 
   // Angol nyelv
@@ -71,7 +80,16 @@ export const translations = {
     logged_in_as: "Logged in as:",
     profile_settings: "Profile settings",
     my_reservations: "My reservations",
-    profile: "Profile"
+    profile: "Profile",
+    edit_profile: "Edit profile",
+    account_status: "Profile status",
+    confirmed: "Confirmed - Active",
+    new_password: "New password",
+    cancel: "Cancel",
+    save: "Save",
+    profile_update_success: "Profile updated successfully!",
+    profile_update_error: "Failed to save changes!",
+    missing_id_error: "Error: Missing ID!"
   },
 
   // Japán nyelv
@@ -108,7 +126,16 @@ export const translations = {
     logged_in_as: "ログインユーザー:",
     profile_settings: "プロファイル設定",
     my_reservations: "私の予約",
-    profile: "プロフィール"
+    profile: "プロフィール",
+    edit_profile: "プロフィールの編集",
+    account_status: "プロファイルのステータス",
+    confirmed: "確認済み - アクティブ",
+    new_password: "新しいパスワード",
+    cancel: "キャンセル",
+    save: "保存",
+    profile_update_success: "プロフィールが正常に更新されました。",
+    profile_update_error: "救出失敗！",
+    missing_id_error: "エラー: 識別子がありません！"
   },
 
   // Indonéz nyelv
@@ -145,7 +172,16 @@ export const translations = {
     logged_in_as: "Masuk sebagai:",
     profile_settings: "Pengaturan profil",
     my_reservations: "Reservasi saya",
-    profile: "Profil"
+    profile: "Profil",
+    edit_profile: "Sunting profil",
+    account_status: "Status profil",
+    confirmed: "Dikonfirmasi - Aktif",
+    new_password: "Kata sandi baru",
+    cancel: "Membatalkan",
+    save: "Simpan",
+    profile_update_success: "Profil berhasil diperbarui!",
+    profile_update_error: "Upaya penyelamatan gagal!",
+    missing_id_error: "Kesalahan: Pengidentifikasi hilang!"
   },
 
   // Német nyelv
@@ -182,6 +218,15 @@ export const translations = {
     logged_in_as: "Angemeldet als:",
     profile_settings: "Profileinstellungen",
     my_reservations: "Meine Reservierungen",
-    profile: "Profil"
+    profile: "Profil",
+    edit_profile: "Profil bearbeiten",
+    account_status: "Profilstatus",
+    confirmed: "Bestätigt – Aktiv",
+    new_password: "Neues Passwort",
+    cancel: "Stornieren",
+    save: "Speichern",
+    profile_update_success: "Profil erfolgreich aktualisiert!",
+    profile_update_error: "Rettungsaktion gescheitert!",
+    missing_id_error: "Fehler: Fehlender Bezeichner!"
   }
 };

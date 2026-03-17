@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import { Role } from '@prisma/client';
+import bcrypt from 'bcrypt';
 
 import { UserRepository } from '../../infrastructure/repositories/user.repository.js';
 
@@ -32,7 +33,18 @@ export class UserController {
         }
 
         try {
-            const updatedUser = await this.repo.update(id, req.body);
+            const updateData = { ...req.body };
+
+            // Jelszó hashelése, ha érkezett a kérésben
+            if (updateData.password && updateData.password.trim() !== '') {
+                const salt = await bcrypt.genSalt(10);
+                updateData.password = await bcrypt.hash(updateData.password, salt);
+            } else {
+                // Ha üres vagy nincs megadva, töröljük a mezőt
+                delete updateData.password;
+            }
+
+            const updatedUser = await this.repo.update(id, updateData);
             res.json(updatedUser);
         } catch (err) {
             res.status(400).json({ message: "Sikertelen frissítés" });

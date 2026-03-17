@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/public/webicon.png" alt="Logo" width="400">
+  <img src="frontend/public/webicon.png" alt="Logo" width="200">
 </p>
 
 # 1. Függőségek telepítése
@@ -45,6 +45,7 @@ npm run dev
 - A felhasználó be tud jelentkezni
 - A felhasználó tud regisztrálni
 - A felhasználó ki tud jelentkezni
+- A felhasználó meg tudja nézni a saját adatait és módosítani azokat
 
 # Jelenleg elkészült oldalak
 - Főoldal
@@ -52,6 +53,7 @@ npm run dev
 - Regisztráció oldal
 - Sikeres bejelentkezés / regisztráció oldal
 - Hiba a bejelentkezéskor / regisztrációkor oldal
+- Felhasználói profil oldal
 
 # Elérhető nyelvek
 - Magyar
