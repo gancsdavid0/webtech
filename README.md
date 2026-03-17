@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="frontend/public/webicon.png" alt="Logo" width="400">
+</p>
+
 # 1. Függőségek telepítése
 Telepítsd a csomagokat a saját gépeden is, hogy az IDE (WebStorm/VS Code) felismerje a típusokat:
 ```bash  
@@ -48,3 +52,10 @@ npm run dev
 - Regisztráció oldal
 - Sikeres bejelentkezés / regisztráció oldal
 - Hiba a bejelentkezéskor / regisztrációkor oldal
+
+# Elérhető nyelvek
+- Magyar
+- Angol
+- Japán
+- Indonéz
+- Német
