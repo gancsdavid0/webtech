@@ -60,15 +60,15 @@ const Profile = () => {
       localStorage.setItem('user', JSON.stringify(updatedUser));
       setIsEditing(false);
       setEditData(prev => ({ ...prev, password: '' })); 
-      setStatusMessage({ show: true, type: 'success', text: t.profile_update_success }); // Siker visszajelzés
+      setStatusMessage({ show: true, type: 'success', text: t.profile_update_success });
     } else {
-      setStatusMessage({ show: true, type: 'error', text: t.profile_update_error }); // Hiba visszajelzés
+      setStatusMessage({ show: true, type: 'error', text: t.profile_update_error });
     }
   };
 
   return (
     <div 
-      className="h-screen w-full flex flex-col bg-cover bg-center bg-no-repeat bg-fixed" 
+      className="h-screen w-full flex flex-col bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden" 
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Toast értesítés */}
@@ -83,12 +83,12 @@ const Profile = () => {
       {/* Navbar */}
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       
-      {/* Doboz */}
-      <div className="flex-1 bg-white/70 backdrop-blur-[2px] flex flex-col min-h-0 overflow-y-auto">
-        <main className="flex-1 flex justify-center items-start pt-12 pb-12 px-4">
-          
+      {/* Doboz konténer */}
+      <div className="flex-1 bg-white/70 backdrop-blur-[2px] flex flex-col min-h-0 overflow-hidden">
+        
+        {/* Main rész */}
+        <main className="flex-1 flex justify-center items-center px-4 min-h-0">
           <div className="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-white/20">
-            
             <div className="bg-indigo-600 p-8 text-white relative">
               <div className="flex flex-col sm:flex-row items-center gap-6">
                 <div className="w-24 h-24 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-inner overflow-hidden">
