@@ -44,7 +44,12 @@ export const translations = {
     profile_update_success: "Profil sikeresen frissítve!",
     profile_update_error: "Sikertelen mentés!",
     missing_id_error: "Hiba: Hiányzó azonosító!",
-    administration: "Adminisztráció"
+    administration: "Adminisztráció",
+    users_management: "Felhasználók kezelése",
+    parking_management: "Parkolóhelyek kezelése",
+    statistics: "Statisztikák",
+    manage_details: "Kattints ide a menü megnyitásához.",
+    admin_access: "Rendszergazdai hozzáférés aktív"
   },
 
   // Angol nyelv
@@ -91,7 +96,12 @@ export const translations = {
     profile_update_success: "Profile updated successfully!",
     profile_update_error: "Failed to save changes!",
     missing_id_error: "Error: Missing ID!",
-    administration: "Administration"
+    administration: "Administration",
+    users_management: "User management",
+    parking_management: "Manage parking spots",
+    statistics: "Statistics",
+    manage_details: "Click here to open menu.",
+    admin_access: "Administrator access active"
   },
 
   // Japán nyelv
@@ -138,7 +148,12 @@ export const translations = {
     profile_update_success: "プロフィールが正常に更新されました。",
     profile_update_error: "救出失敗！",
     missing_id_error: "エラー: 識別子がありません！",
-    administration: "管理"
+    administration: "管理",
+    users_management: "ユーザーの管理",
+    parking_management: "駐車スペース管理",
+    statistics: "統計",
+    manage_details: "メニューを開くにはここをクリックしてください",
+    admin_access: "管理者アクセスがアクティブです"
   },
 
   // Indonéz nyelv
@@ -185,7 +200,12 @@ export const translations = {
     profile_update_success: "Profil berhasil diperbarui!",
     profile_update_error: "Upaya penyelamatan gagal!",
     missing_id_error: "Kesalahan: Pengidentifikasi hilang!",
-    administration: "Administrasi"
+    administration: "Administrasi",
+    users_management: "Mengelola pengguna",
+    parking_management: "Pengelolaan tempat parkir",
+    statistics: "Statistik",
+    manage_details: "Klik di sini untuk membuka menu",
+    admin_access: "Akses administrator aktif"
   },
 
   // Német nyelv
@@ -232,6 +252,11 @@ export const translations = {
     profile_update_success: "Profil erfolgreich aktualisiert!",
     profile_update_error: "Rettungsaktion gescheitert!",
     missing_id_error: "Fehler: Fehlender Bezeichner!",
-    administration: "Verwaltung"
+    administration: "Verwaltung",
+    users_management: "Benutzer verwalten",
+    parking_management: "Parkraumbewirtschaftung",
+    statistics: "Statistiken",
+    manage_details: "Klicken Sie hier, um das Menü zu öffnen.",
+    admin_access: "Administratorzugriff aktiv"
   }
 };
