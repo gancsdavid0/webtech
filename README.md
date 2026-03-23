@@ -46,6 +46,7 @@ npm run dev
 - A felhasználó tud regisztrálni
 - A felhasználó ki tud jelentkezni
 - A felhasználó meg tudja nézni a saját adatait és módosítani azokat
+- A rendszergazda meg tudja nézni az összes felhasználót, és igény esetén törölni azokat, valamint keresni közöttük
 
 # Jelenleg elkészült oldalak
 - Főoldal
@@ -54,6 +55,7 @@ npm run dev
 - Sikeres bejelentkezés / regisztráció oldal
 - Hiba a bejelentkezéskor / regisztrációkor oldal
 - Felhasználói profil oldal
+- Admin oldal (Felhasználók kezelése)
 
 # Elérhető nyelvek
 - Magyar
