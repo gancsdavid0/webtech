@@ -13,6 +13,10 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const { currentLang } = useLanguage();
   const t = translations[currentLang.code];
 
+  // Felhasználói adatok lekérése a role ellenőrzéséhez
+  const user = JSON.parse(localStorage.getItem('user'));
+  const isAdmin = user?.role === 'ADMIN';
+
   const handleLogout = async () => {
     try {
       await authService.logout();
@@ -56,7 +60,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                 className="hidden sm:flex"
               />
               {/* Profil ikon és lenyíló menü */}
-              <UserMenu onLogout={handleLogout} />
+              <UserMenu onLogout={handleLogout} isAdmin={isAdmin} />
             </div>
           ) : (
             <ActionButton 

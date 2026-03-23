@@ -43,7 +43,8 @@ export const translations = {
     save: "Mentés",
     profile_update_success: "Profil sikeresen frissítve!",
     profile_update_error: "Sikertelen mentés!",
-    missing_id_error: "Hiba: Hiányzó azonosító!"
+    missing_id_error: "Hiba: Hiányzó azonosító!",
+    administration: "Adminisztráció"
   },
 
   // Angol nyelv
@@ -89,7 +90,8 @@ export const translations = {
     save: "Save",
     profile_update_success: "Profile updated successfully!",
     profile_update_error: "Failed to save changes!",
-    missing_id_error: "Error: Missing ID!"
+    missing_id_error: "Error: Missing ID!",
+    administration: "Administration"
   },
 
   // Japán nyelv
@@ -135,7 +137,8 @@ export const translations = {
     save: "保存",
     profile_update_success: "プロフィールが正常に更新されました。",
     profile_update_error: "救出失敗！",
-    missing_id_error: "エラー: 識別子がありません！"
+    missing_id_error: "エラー: 識別子がありません！",
+    administration: "管理"
   },
 
   // Indonéz nyelv
@@ -181,7 +184,8 @@ export const translations = {
     save: "Simpan",
     profile_update_success: "Profil berhasil diperbarui!",
     profile_update_error: "Upaya penyelamatan gagal!",
-    missing_id_error: "Kesalahan: Pengidentifikasi hilang!"
+    missing_id_error: "Kesalahan: Pengidentifikasi hilang!",
+    administration: "Administrasi"
   },
 
   // Német nyelv
@@ -227,6 +231,7 @@ export const translations = {
     save: "Speichern",
     profile_update_success: "Profil erfolgreich aktualisiert!",
     profile_update_error: "Rettungsaktion gescheitert!",
-    missing_id_error: "Fehler: Fehlender Bezeichner!"
+    missing_id_error: "Fehler: Fehlender Bezeichner!",
+    administration: "Verwaltung"
   }
 };

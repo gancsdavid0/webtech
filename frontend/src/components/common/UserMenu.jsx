@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../translations.js';
-import { User, ChevronDown, Settings, List, LogOut } from 'lucide-react';
+import { User, ChevronDown, Settings, List, LogOut, ShieldCheck } from 'lucide-react';
 import MenuItem from './MenuItem';
 
 const UserMenu = ({ onLogout }) => {
@@ -15,6 +15,9 @@ const UserMenu = ({ onLogout }) => {
 
   const { currentLang } = useLanguage();
   const t = translations[currentLang.code];
+
+  // Admin jogosultság ellenőrzése
+  const isAdmin = userData?.role === 'ADMIN';
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -91,19 +94,31 @@ const UserMenu = ({ onLogout }) => {
                 {userData?.fullName}
               </p>
             </div>
+
+            {/* Adminisztráció gomb - csak ADMIN role esetén */}
+            {isAdmin && (
+              <MenuItem 
+                icon={ShieldCheck} 
+                label={t.administration}
+                onClick={() => { navigate('/admin'); setIsOpen(false); }} 
+              />
+            )}
             
+            {/* Profilbeállítások gomb */}
             <MenuItem 
               icon={Settings} 
               label={t.profile_settings}
               onClick={() => { navigate('/profile'); setIsOpen(false); }} 
             />
             
+            {/* Foglalásaim gomb */}
             <MenuItem 
               icon={List} 
               label={t.my_reservations}
               onClick={() => { navigate('/my-bookings'); setIsOpen(false); }} 
             />
-            
+
+            {/* Kijelentkezés gomb */}
             <div className="border-t border-slate-50 mt-2 pt-2">
               <MenuItem 
                 variant="red"

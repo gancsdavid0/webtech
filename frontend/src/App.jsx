@@ -6,6 +6,7 @@ import Success from './pages/Success';
 import Error from './pages/Error';
 import Parking_areas from './pages/Parking_areas';
 import Profile from './pages/Profile';
+import Admin from './pages/Admin';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/error" element={<Error />} />
           <Route path="/parking_areas" element={<Parking_areas />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/admin" element={<Admin />}/>
         </Routes>
       </Router>
     </LanguageProvider>
