@@ -49,7 +49,13 @@ export const translations = {
     parking_management: "Parkolóhelyek kezelése",
     statistics: "Statisztikák",
     manage_details: "Kattints ide a menü megnyitásához.",
-    admin_access: "Rendszergazdai hozzáférés aktív"
+    admin_access: "Rendszergazdai hozzáférés aktív",
+    users_total: "Regisztrált felhasználó",
+    loading: "Betöltés...",
+    no_users_found: "Nincs regisztrált felhasználó!",
+    role: "Szerepkör",
+    created_at: "Létrehozás dátuma",
+    updated_at: "Módosítás dátuma"
   },
 
   // Angol nyelv
@@ -101,7 +107,13 @@ export const translations = {
     parking_management: "Manage parking spots",
     statistics: "Statistics",
     manage_details: "Click here to open menu.",
-    admin_access: "Administrator access active"
+    admin_access: "Administrator access active",
+    users_total: "Registered user",
+    loading: "Loading...",
+    no_users_found: "No registered users!",
+    role: "Role",
+    created_at: "Created at",
+    updated_at: "Updated at"
   },
 
   // Japán nyelv
@@ -153,7 +165,13 @@ export const translations = {
     parking_management: "駐車スペース管理",
     statistics: "統計",
     manage_details: "メニューを開くにはここをクリックしてください",
-    admin_access: "管理者アクセスがアクティブです"
+    admin_access: "管理者アクセスがアクティブです",
+    users_total: "登録ユーザー",
+    loading: "コンテンツをロードしています...",
+    no_users_found: "登録ユーザーがいません!",
+    role: "役割",
+    created_at: "作成日",
+    updated_at: "変更日"
   },
 
   // Indonéz nyelv
@@ -205,7 +223,13 @@ export const translations = {
     parking_management: "Pengelolaan tempat parkir",
     statistics: "Statistik",
     manage_details: "Klik di sini untuk membuka menu",
-    admin_access: "Akses administrator aktif"
+    admin_access: "Akses administrator aktif",
+    users_total: "Pengguna terdaftar",
+    loading: "Memuat konten...",
+    no_users_found: "Tidak ada pengguna terdaftar!",
+    role: "Peran",
+    created_at: "Tanggal pembuatan",
+    updated_at: "Tanggal modifikasi"
   },
 
   // Német nyelv
@@ -257,6 +281,12 @@ export const translations = {
     parking_management: "Parkraumbewirtschaftung",
     statistics: "Statistiken",
     manage_details: "Klicken Sie hier, um das Menü zu öffnen.",
-    admin_access: "Administratorzugriff aktiv"
+    admin_access: "Administratorzugriff aktiv",
+    users_total: "Registrierter benutzer",
+    loading: "Der Inhalt wird geladen...",
+    no_users_found: "Keine registrierten Benutzer!",
+    role: "Rolle",
+    created_at: "Erstellungsdatum",
+    updated_at: "Datum der Änderung"
   }
 };

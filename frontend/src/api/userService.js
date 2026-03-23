@@ -1,6 +1,7 @@
 const BASE_URL = 'http://localhost:3000/api';
 
 export const userService = {
+  // A meglévő profil frissítés
   updateProfile: async (userId, token, updateData) => {
     try {
       const response = await fetch(`${BASE_URL}/user/${userId}`, {
@@ -16,6 +17,24 @@ export const userService = {
       return { ok: response.ok, data };
     } catch (error) {
       console.error(error);
+      return { ok: false };
+    }
+  },
+
+  // Összes felhasználó lekérése (Adminoknak)
+  getAllUsers: async (token) => {
+    try {
+      const response = await fetch(`${BASE_URL}/user/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await response.json();
+      return { ok: response.ok, data };
+    } catch (error) {
+      console.error("UserService getAllUsers hiba:", error);
       return { ok: false };
     }
   }

@@ -30,9 +30,27 @@ const Admin = () => {
 
   // Gyorselérés az admin felületen
   const adminCards = [
-    { icon: Users, label: t.users_management, count: '...', color: 'text-blue-600' },
-    { icon: MapPin, label: t.parking_management, count: '...', color: 'text-emerald-600' },
-    { icon: BarChart3, label: t.statistics, count: '...', color: 'text-purple-600' },
+    { 
+      icon: Users, 
+      label: t.users_management, 
+      count: '...', 
+      color: 'text-blue-600',
+      path: '/admin/user_management'
+    },
+    { 
+      icon: MapPin, 
+      label: t.parking_management, 
+      count: '...', 
+      color: 'text-emerald-600',
+      path: '/admin/parking'
+    },
+    { 
+      icon: BarChart3, 
+      label: t.statistics, 
+      count: '...', 
+      color: 'text-purple-600',
+      path: '/admin/statistics'
+    },
   ];
 
   return (
@@ -67,7 +85,8 @@ const Admin = () => {
               {adminCards.map((card, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-6 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:scale-[1.02] transition-transform cursor-pointer group"
+                  onClick={() => navigate(card.path)}
+                  className="bg-white p-6 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div className={`p-3 rounded-2xl bg-slate-50 group-hover:bg-white transition-colors ${card.color}`}>
