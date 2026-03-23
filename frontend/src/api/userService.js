@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:3000/api';
 
 export const userService = {
-  // A meglévő profil frissítés
+  // Profil frissítése (Felhasználó saját maga)
   updateProfile: async (userId, token, updateData) => {
     try {
       const response = await fetch(`${BASE_URL}/user/${userId}`, {
@@ -16,7 +16,7 @@ export const userService = {
       const data = await response.json();
       return { ok: response.ok, data };
     } catch (error) {
-      console.error(error);
+      console.error("UserService updateProfile hiba:", error);
       return { ok: false };
     }
   },
@@ -35,6 +35,24 @@ export const userService = {
       return { ok: response.ok, data };
     } catch (error) {
       console.error("UserService getAllUsers hiba:", error);
+      return { ok: false };
+    }
+  },
+
+  // Felhasználó törlése (Adminoknak)
+  deleteUser: async (userId, token) => {
+    try {
+      const response = await fetch(`${BASE_URL}/user/${userId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await response.json();
+      return { ok: response.ok, data };
+    } catch (error) {
+      console.error("UserService deleteUser hiba:", error);
       return { ok: false };
     }
   }

@@ -55,7 +55,10 @@ export const translations = {
     no_users_found: "Nincs regisztrált felhasználó!",
     role: "Szerepkör",
     created_at: "Létrehozás dátuma",
-    updated_at: "Módosítás dátuma"
+    updated_at: "Módosítás dátuma",
+    confirm_delete: "Biztos törölni szeretnéd ezt a felhasználót?",
+    delete_error: "Hiba történt a felhasználó törlése során!",
+    search_placeholder: "Keresés név vagy email alapján"
   },
 
   // Angol nyelv
@@ -113,7 +116,10 @@ export const translations = {
     no_users_found: "No registered users!",
     role: "Role",
     created_at: "Created at",
-    updated_at: "Updated at"
+    updated_at: "Updated at",
+    confirm_delete: "Are you sure you want to delete this user?",
+    delete_error: "An error occurred while deleting the user!",
+    search_placeholder: "Search by name or email"
   },
 
   // Japán nyelv
@@ -171,7 +177,10 @@ export const translations = {
     no_users_found: "登録ユーザーがいません!",
     role: "役割",
     created_at: "作成日",
-    updated_at: "変更日"
+    updated_at: "変更日",
+    confirm_delete: "このユーザーを削除してもよろしいですか？",
+    delete_error: "ユーザー削除中にエラーが発生しました！",
+    search_placeholder: "名前またはメールアドレスで検索"
   },
 
   // Indonéz nyelv
@@ -229,7 +238,10 @@ export const translations = {
     no_users_found: "Tidak ada pengguna terdaftar!",
     role: "Peran",
     created_at: "Tanggal pembuatan",
-    updated_at: "Tanggal modifikasi"
+    updated_at: "Tanggal modifikasi",
+    confirm_delete: "Apakah Anda yakin ingin menghapus pengguna ini?",
+    delete_error: "Terjadi kesalahan saat menghapus pengguna!",
+    search_placeholder: "Cari berdasarkan nama atau email"
   },
 
   // Német nyelv
@@ -287,6 +299,9 @@ export const translations = {
     no_users_found: "Keine registrierten Benutzer!",
     role: "Rolle",
     created_at: "Erstellungsdatum",
-    updated_at: "Datum der Änderung"
+    updated_at: "Datum der Änderung",
+    confirm_delete: "Möchten Sie diesen Benutzer wirklich löschen?",
+    delete_error: "Beim Löschen des Benutzers ist ein Fehler aufgetreten!",
+    search_placeholder: "Suche nach Name oder E-Mail-Adresse"
   }
 };
