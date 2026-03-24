@@ -66,6 +66,20 @@ const User_management = () => {
     }
   };
 
+  const handleRoleChange = async (userId, newRole) => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const token = userData?.token || userData?.accessToken;
+    
+    // PATCH /api/user/:id hívása a role frissítéséhez
+    const result = await userService.updateProfile(userId, token, { role: newRole });
+
+    if (result.ok) {
+      setUsers(prev => prev.map(u => (u.id || u._id) === userId ? { ...u, role: newRole } : u));
+    } else {
+      alert(t.update_error);
+    }
+  };
+
   const formatDate = (dateString) => {
     if (!dateString) return '-';
     return new Date(dateString).toLocaleDateString(currentLang.code === 'hu' ? 'hu-HU' : 'en-US', {
@@ -82,25 +96,26 @@ const User_management = () => {
       <div className="flex-1 bg-white/70 backdrop-blur-[2px] flex flex-col min-h-0">
         <main className="flex-1 overflow-y-auto py-8 px-4">
           <div className="max-w-7xl mx-auto">
-            
+
             <UserStats 
               title={t.users_management} 
               countLabel={t.users_total} 
               count={users.length} 
             />
-
+            
             <UserSearch 
               searchTerm={searchTerm} 
               setSearchTerm={setSearchTerm} 
               placeholder={t.search_placeholder} 
             />
-
+            
             <UserTable 
-              users={filteredUsers} // Szűrt lista
+              users={filteredUsers} 
               loading={loading} 
               t={t} 
               formatDate={formatDate} 
-              onDelete={handleDelete} 
+              onDelete={handleDelete}
+              onRoleChange={handleRoleChange} 
             />
 
           </div>

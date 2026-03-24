@@ -1,7 +1,7 @@
 import UserTableHeader from '../layout/UserTableHeader';
 import UserTableRow from '../layout/UserTableRow';
 
-const UserTable = ({ users, loading, t, formatDate, onDelete }) => {
+const UserTable = ({ users, loading, t, formatDate, onDelete, onRoleChange }) => {
   return (
     <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
       <div className="overflow-x-auto">
@@ -19,6 +19,7 @@ const UserTable = ({ users, loading, t, formatDate, onDelete }) => {
                   user={user} 
                   formatDate={formatDate} 
                   onDelete={onDelete}
+                  onRoleChange={onRoleChange}
                 />
               ))
             )}

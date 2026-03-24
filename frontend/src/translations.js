@@ -47,7 +47,7 @@ export const translations = {
     administration: "Adminisztráció",
     users_management: "Felhasználók kezelése",
     parking_management: "Parkolóhelyek kezelése",
-    statistics: "Statisztikák",
+    reservations: "Foglalások kezelése",
     manage_details: "Kattints ide a menü megnyitásához.",
     admin_access: "Rendszergazdai hozzáférés aktív",
     users_total: "Regisztrált felhasználó",
@@ -58,7 +58,8 @@ export const translations = {
     updated_at: "Módosítás dátuma",
     confirm_delete: "Biztos törölni szeretnéd ezt a felhasználót?",
     delete_error: "Hiba történt a felhasználó törlése során!",
-    search_placeholder: "Keresés név vagy email alapján"
+    search_placeholder: "Keresés név vagy email alapján",
+    update_error: "Hiba történt a módosítás során!"
   },
 
   // Angol nyelv
@@ -108,7 +109,7 @@ export const translations = {
     administration: "Administration",
     users_management: "User management",
     parking_management: "Manage parking spots",
-    statistics: "Statistics",
+    reservations: "Manage reservations",
     manage_details: "Click here to open menu.",
     admin_access: "Administrator access active",
     users_total: "Registered user",
@@ -119,7 +120,8 @@ export const translations = {
     updated_at: "Updated at",
     confirm_delete: "Are you sure you want to delete this user?",
     delete_error: "An error occurred while deleting the user!",
-    search_placeholder: "Search by name or email"
+    search_placeholder: "Search by name or email",
+    update_error: "An error occurred during the modification!"
   },
 
   // Japán nyelv
@@ -169,7 +171,7 @@ export const translations = {
     administration: "管理",
     users_management: "ユーザーの管理",
     parking_management: "駐車スペース管理",
-    statistics: "統計",
+    reservations: "予約を管理する",
     manage_details: "メニューを開くにはここをクリックしてください",
     admin_access: "管理者アクセスがアクティブです",
     users_total: "登録ユーザー",
@@ -180,7 +182,8 @@ export const translations = {
     updated_at: "変更日",
     confirm_delete: "このユーザーを削除してもよろしいですか？",
     delete_error: "ユーザー削除中にエラーが発生しました！",
-    search_placeholder: "名前またはメールアドレスで検索"
+    search_placeholder: "名前またはメールアドレスで検索",
+    update_error: "変更中にエラーが発生しました！"
   },
 
   // Indonéz nyelv
@@ -230,7 +233,7 @@ export const translations = {
     administration: "Administrasi",
     users_management: "Mengelola pengguna",
     parking_management: "Pengelolaan tempat parkir",
-    statistics: "Statistik",
+    reservations: "mengelola reservasi",
     manage_details: "Klik di sini untuk membuka menu",
     admin_access: "Akses administrator aktif",
     users_total: "Pengguna terdaftar",
@@ -241,7 +244,8 @@ export const translations = {
     updated_at: "Tanggal modifikasi",
     confirm_delete: "Apakah Anda yakin ingin menghapus pengguna ini?",
     delete_error: "Terjadi kesalahan saat menghapus pengguna!",
-    search_placeholder: "Cari berdasarkan nama atau email"
+    search_placeholder: "Cari berdasarkan nama atau email",
+    update_error: "Terjadi kesalahan selama modifikasi!"
   },
 
   // Német nyelv
@@ -291,7 +295,7 @@ export const translations = {
     administration: "Verwaltung",
     users_management: "Benutzer verwalten",
     parking_management: "Parkraumbewirtschaftung",
-    statistics: "Statistiken",
+    reservations: "Reservierungen verwalten",
     manage_details: "Klicken Sie hier, um das Menü zu öffnen.",
     admin_access: "Administratorzugriff aktiv",
     users_total: "Registrierter benutzer",
@@ -302,6 +306,7 @@ export const translations = {
     updated_at: "Datum der Änderung",
     confirm_delete: "Möchten Sie diesen Benutzer wirklich löschen?",
     delete_error: "Beim Löschen des Benutzers ist ein Fehler aufgetreten!",
-    search_placeholder: "Suche nach Name oder E-Mail-Adresse"
+    search_placeholder: "Suche nach Name oder E-Mail-Adresse",
+    update_error: "Bei der Änderung ist ein Fehler aufgetreten!"
   }
 };

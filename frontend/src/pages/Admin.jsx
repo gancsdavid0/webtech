@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import { translations } from '../translations.js';
-import { LayoutDashboard, Users, MapPin, BarChart3, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Users, MapPin, CalendarCheck, ShieldCheck } from 'lucide-react';
 import backgroundImage from '../assets/images/home_bg.jpg';
 import Navbar from '../components/layout/Navbar.jsx';
 import Footer from '../components/layout/Footer.jsx';
@@ -45,11 +45,11 @@ const Admin = () => {
       path: '/admin/parking'
     },
     { 
-      icon: BarChart3, 
-      label: t.statistics, 
+      icon: CalendarCheck, 
+      label: t.reservations, 
       count: '...', 
-      color: 'text-purple-600',
-      path: '/admin/statistics'
+      color: 'text-emerald-600',
+      path: '/admin/reservations'
     },
   ];
 
