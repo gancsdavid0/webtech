@@ -1,40 +1,44 @@
-import { PrismaClient } from '@prisma/client';
-import { Role } from '@prisma/client';
+import { prisma } from '../database/prisma.js';
+import type { User, Role } from '@prisma/client';
+import type { IUserRepository, UpdateUserData } from '../../domain/irepositories/user.repository.interface.js';
 
-const prisma = new PrismaClient();
+export class UserRepository implements IUserRepository {
 
-export class UserRepository {
-    async findAll() {
+    async findAll(): Promise<User[]> {
         return prisma.user.findMany({
-            select: { id: true, email: true, fullName: true, role: true, createdAt: true }
+            orderBy: { createdAt: 'desc' }
         });
     }
 
-    async findById(id: number) {
+    async findById(id: number): Promise<User | null> {
         return prisma.user.findUnique({
-            where: { id },
-            select: { id: true, email: true, fullName: true, role: true }
+            where: { id }
         });
     }
 
-    async update(id: number, data: { name?: string; email?: string; role?: any }) {
+    async findByEmail(email: string): Promise<User | null> {
+        return prisma.user.findUnique({
+            where: { email }
+        });
+    }
+
+    async update(id: number, data: UpdateUserData): Promise<User> {
         return prisma.user.update({
             where: { id },
-            data,
-            select: { id: true, email: true, fullName: true, role: true }
+            data: data
         });
     }
 
-    async delete(id: number) {
-        return prisma.user.delete({ where: { id } });
-    }
-
-
-    async updateRole(id: number, newRole: Role) {
+    async updateRole(id: number, role: Role): Promise<User> {
         return prisma.user.update({
             where: { id },
-            data: { role: newRole },
-            select: { id: true, email: true, role: true } // Visszaigazoljuk a változást
+            data: { role }
         });
-}
+    }
+
+    async delete(id: number): Promise<void> {
+        await prisma.user.delete({
+            where: { id }
+        });
+    }
 }

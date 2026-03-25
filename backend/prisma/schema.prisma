@@ -63,10 +63,11 @@ model ParkingZone {
   id        Int           @id @default(autoincrement())
   name      String
   address   String
-  city      String        @default("Budapest")
+  city      String?        @default("Budapest")
   spots     ParkingSpot[]
   prices    Pricing[]
   createdAt DateTime      @default(now())
+  description String?
 }
 
 model ParkingSpot {

@@ -13,8 +13,5 @@ routes.patch('/:id', authenticate, (req, res) => controller.update(req, res));
 
 routes.delete('/:id', authenticate, authorize(['ADMIN']), (req, res) => controller.delete(req, res));
 
-routes.patch(
-    '/:id/role',
-    (req, res) => controller.changeRole(req, res)
-);
+routes.patch('/:id/role', authenticate, authorize(['ADMIN']),(req, res) => controller.changeRole(req, res));
 export default routes;

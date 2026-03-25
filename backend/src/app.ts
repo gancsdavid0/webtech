@@ -19,7 +19,10 @@ app.get('/', (req, res) => {
         message: 'Welcome to the parking API',
         endpoints: {
             reservation: '/api/reservation',
-            user: '/api/auth',
+            user: '/api/user',
+            auth: '/api/auth',
+            parkingZone: '/api/parking-zone',
+            parkingSpot: '/api/parking-spot',
         }
     });
 });

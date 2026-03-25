@@ -1,71 +1,99 @@
-import type { Request, Response } from 'express';
+import type { Response } from 'express';
 import { Role } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 import { UserRepository } from '../../infrastructure/repositories/user.repository.js';
+import {UpdateUserRoleSchema, UpdateUserSchema} from "../../domain/dtos/user.dto.js";
 
 export class UserController {
     private repo = new UserRepository();
 
     async getAll(req: any, res: Response) {
-        const users = await this.repo.findAll();
-        res.json(users);
+        try {
+            const users = await this.repo.findAll();
+            res.json(users);
+        } catch (err) {
+            res.status(500).json({ success: false, message: "Hiba a listázás során." });
+        }
     }
 
     async getById(req: any, res: Response) {
         const id = parseInt(req.params.id);
-        const user = await this.repo.findById(id);
         const { id: currentUserId, role } = req.user;
+
         if (role !== 'ADMIN' && currentUserId !== id) {
-            return res.status(403).json({ message: "Nincs jogosultságod más profilját módosítani!" });
+            return res.status(403).json({ success: false, message: "Nincs jogosultságod a profil megtekintéséhez!" });
         }
-        if (!user) return res.status(404).json({ message: "Felhasználó nem található" });
+
+        const user = await this.repo.findById(id);
+        if (!user) return res.status(404).json({ success: false, message: "Felhasználó nem található" });
+
         res.json(user);
     }
 
     async update(req: any, res: Response) {
         const id = parseInt(req.params.id);
-        const { id: currentUserId, role } = req.user;
+        const { id: currentUserId, role: currentUserRole } = req.user;
 
-        // Csak admin vagy a saját maga profilját módosíthatja
-        if (role !== 'ADMIN' && currentUserId !== id) {
-            return res.status(403).json({ message: "Nincs jogosultságod más profilját módosítani!" });
+        if (currentUserRole !== 'ADMIN' && currentUserId !== id) {
+            return res.status(403).json({ success: false, message: "Nincs jogosultságod más profilját módosítani!" });
+        }
+
+        const validation = UpdateUserSchema.safeParse(req.body);
+        if (!validation.success) {
+            return res.status(400).json({ success: false, errors: validation.error.format() });
         }
 
         try {
-            const updateData = { ...req.body };
+            const updateData: any = { ...validation.data };
 
-            // Jelszó hashelése, ha érkezett a kérésben
-            if (updateData.password && updateData.password.trim() !== '') {
+            if (updateData.password) {
                 const salt = await bcrypt.genSalt(10);
                 updateData.password = await bcrypt.hash(updateData.password, salt);
-            } else {
-                // Ha üres vagy nincs megadva, töröljük a mezőt
-                delete updateData.password;
             }
 
             const updatedUser = await this.repo.update(id, updateData);
-            res.json(updatedUser);
-        } catch (err) {
-            res.status(400).json({ message: "Sikertelen frissítés" });
+            res.json({ success: true, data: updatedUser });
+        } catch (err: any) {
+            res.status(400).json({ success: false, message: "Sikertelen frissítés: " + err.message });
         }
     }
 
     async delete(req: any, res: Response) {
-        const id = parseInt(req.params.id);
-        await this.repo.delete(id);
-        res.json({ success: true, message: "Felhasználó törölve" });
+        try {
+            const id = parseInt(req.params.id);
+            const { id: currentUserId } = req.user;
+
+            if (currentUserId === id) {
+                return res.status(400).json({ success: false, message: "Saját magadat nem törölheted!" });
+            }
+
+            await this.repo.delete(id);
+            res.json({ success: true, message: "Felhasználó törölve" });
+        } catch (err) {
+            res.status(400).json({ success: false, message: "A törlés sikertelen." });
+        }
     }
 
     async changeRole(req: any, res: Response) {
+        const validation = UpdateUserRoleSchema.safeParse(req.body);
+        if (!validation.success) {
+            return res.status(400).json({
+                success: false,
+                message: "Érvénytelen szerepkör!",
+                errors: validation.error.format()
+            });
+        }
+
         try {
             const targetUserId = parseInt(req.params.id);
-            const { role } = req.body;
+            const { role } = validation.data;
+            const { id: currentUserId } = req.user;
 
-            if (!Object.values(Role).includes(role)) {
+            if (targetUserId === currentUserId) {
                 return res.status(400).json({
                     success: false,
-                    message: `Érvénytelen szerepkör. Lehetséges értékek: ${Object.values(Role).join(', ')}`
+                    message: "Saját szerepkörödet nem módosíthatod ezen a végponton!"
                 });
             }
 

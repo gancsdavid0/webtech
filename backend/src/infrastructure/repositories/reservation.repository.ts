@@ -4,6 +4,27 @@ import type { Reservation } from "@prisma/client";
 import { ReservationStatus } from "@prisma/client";
 
 export class ReservationRepository implements IReservationRepository {
+    private readonly reservationInclude = {
+        user: {
+            select: {
+                fullName: true,
+                email: true
+            }
+        },
+        spot: {
+            include: {
+                parkingZone: true
+            }
+        },
+        vehicle: true
+    };
+
+    update(id: number, data: Partial<CreateReservationData>): Promise<Reservation> {
+        throw new Error("Method not implemented.");
+    }
+    updateStatus(id: number, status: ReservationStatus): Promise<Reservation> {
+        throw new Error("Method not implemented.");
+    }
     async findAllReservationsByUserId(userId: number): Promise<Reservation[]> {
         return prisma.reservation.findMany({
             where: {
@@ -12,12 +33,11 @@ export class ReservationRepository implements IReservationRepository {
         })
     }
 
-    async findReservationById(id: number){
+    async findReservationById(id: number) {
         return prisma.reservation.findUnique({
-            where: {
-                id : id
-            },
-        })
+            where: { id },
+            include: this.reservationInclude
+        });
     }
 
     async findAllActiveReservationsByUserId(userId: number){
@@ -25,7 +45,8 @@ export class ReservationRepository implements IReservationRepository {
             where: {
                 userId : userId,
                 status : ReservationStatus.ACTIVE
-            }
+            },
+            include: this.reservationInclude
         })
     }
 
@@ -55,5 +76,13 @@ export class ReservationRepository implements IReservationRepository {
                 ]
             }
         })
+    }
+    async findAll(): Promise<Reservation[]> {
+        return prisma.reservation.findMany({
+            include: this.reservationInclude,
+            orderBy: {
+                startTime: 'desc'
+            }
+        });
     }
 }

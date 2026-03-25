@@ -38,7 +38,7 @@
           "response": []
         },
         {
-          "name": "login",
+          "name": "login admin",
           "event": [
             {
               "listen": "test",
@@ -128,6 +128,55 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "login user",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "91aca8c0-3302-485b-89ea-35920f08cdcd",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "762bffbc-58f9-4f86-b249-cdffb37430c4",
+                "exec": [
+                  "const jsonData = pm.response.json();\r",
+                  "if (jsonData.token) {\r",
+                  "    pm.environment.set(\"token\", jsonData.token);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "22cfe24f-3b93-4602-b16b-389ee045bc9a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/auth/login/",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "auth",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "abf1e9c8-9be4-4eff-aef8-84cd19f9eabe"
@@ -180,13 +229,108 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "Saját aktív foglalások lekérése",
           "id": "2bfd1208-9134-4eb2-bb2e-6c088ead42d9",
           "request": {
             "method": "GET",
             "header": [],
             "url": {
+              "raw": "{{API_BASE}}/reservation/active",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "reservation",
+                "active"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Összes foglalás listázása (Admin Only)",
+          "id": "0f45a81f-0255-4e9a-aafe-72d8daa4dd4f",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
               "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Konkrét foglalás megtekintése (Get by ID)",
+          "id": "a840c68a-11e9-475e-baad-c0d0d4e5e79e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/reservation/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "reservation",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "foglalás frissítése",
+          "id": "1a8d123f-4862-4d36-a533-591009de9a11",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"startTime\": \"2026-03-26T11:00:00Z\",\r\n  \"endTime\": \"2026-03-26T13:00:00Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_BASE}}/reservation/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "reservation",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Foglalás lemondása",
+          "id": "3dbab80b-0caf-4bc3-bdd9-ed43c29724a9",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/reservation/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "reservation",
+                "1"
+              ]
             }
           },
           "response": []
@@ -210,20 +354,8 @@
           "response": []
         },
         {
-          "name": "get all user by id",
+          "name": "get user by id",
           "id": "8b9fe5fa-d82c-4b16-935e-d62f5e0e1213",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get all user by id Copy",
-          "id": "5c49fd93-e3d9-4eab-9132-4dad93dceda1",
           "request": {
             "auth": {
               "type": "bearer",
@@ -235,16 +367,16 @@
                 }
               ]
             },
-            "method": "POST",
+            "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{API_BASE}}/user/2",
+              "raw": "{{API_BASE}}/user/3",
               "host": [
                 "{{API_BASE}}"
               ],
               "path": [
                 "user",
-                "2"
+                "3"
               ]
             }
           },
@@ -288,9 +420,219 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "patch user by id",
+          "id": "e7d685c8-92d6-4e5e-be74-e249ce810637",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/user/3",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "user",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete user by id",
+          "id": "0a912f64-17b6-49f3-8520-9fc39b02f757",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/user/3",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "user",
+                "3"
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "97b3da1e-7ffb-424c-81bb-64e0354c0e2e"
+    },
+    {
+      "name": "parking-zone",
+      "item": [
+        {
+          "name": "get all parking-zone",
+          "id": "df8f5b5f-2a25-4773-b50c-5afde8626dff",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get parking-zone by id",
+          "id": "79786ba6-8c8d-44b3-a5a3-eb8e53704518",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Új parking-zone felvétele",
+          "id": "82490e42-7808-4748-8d9b-88e9ae092c56",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/parking-zone",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "parking-zone"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "c8ba2558-104d-490b-84b8-36b6c979e271",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/parking-zone/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "parking-zone",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "401ec4a8-4bd9-48db-924f-ea8dfc04f27d"
+    },
+    {
+      "name": "parking-spot",
+      "item": [
+        {
+          "name": "Új parkoló hely hozzáadása",
+          "id": "3207a66b-4e92-43c8-90ca-a43df0ca91e4",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"spotNumber\": \"B-204\",\r\n  \"type\": \"DISABLED\",\r\n  \"parkingZoneId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_BASE}}/parking-spot",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "parking-spot"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Összes parkolóhely lekérése",
+          "id": "b0de9933-3ab3-49bc-90a7-7870d6559eaf",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "parkolóhely lekérése id alapján",
+          "id": "624a3d73-8570-408c-a803-36bc6c758796",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "parkolóhely frissítése",
+          "id": "3a5c67fa-3549-4042-adb0-829676937359",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/parking-spot/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "parking-spot",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "33c9e8f3-9615-4afd-bfd6-cfb94a09de31",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_BASE}}/parking-spot/1",
+              "host": [
+                "{{API_BASE}}"
+              ],
+              "path": [
+                "parking-spot",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "0759592e-e36e-4ac7-876e-5daf56159d94"
     },
     {
       "name": "docs",

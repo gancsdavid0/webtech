@@ -6,7 +6,7 @@ export class CreateReservationHandler {
     private repo = new ReservationRepository();
 
     async handle(command: CreateReservationCommand) {
-        const { userId, spotId, startTime, endTime } = command;
+        const { userId, spotId, vehicleId, startTime, endTime } = command;
 
         if (!userId) throw new Error("A foglaláshoz be kell jelentkezni.");
 
@@ -26,6 +26,15 @@ export class CreateReservationHandler {
         });
         if (!spot) throw new Error("A parkolóhely nem létezik.");
 
+        if (vehicleId) {
+            const vehicle = await prisma.vehicle.findUnique({
+                where: { id: vehicleId }
+            });
+
+            if (!vehicle) throw new Error("A megadott jármű nem található.");
+            if (vehicle.ownerId !== userId) throw new Error("Ez a jármű nem a te neveden van!");
+        }
+
         const pricing = spot.parkingZone.prices.find(p => p.spotType === spot.type);
         if (!pricing) throw new Error("Nincs ár meghatározva ehhez a típushoz.");
 
@@ -38,7 +47,8 @@ export class CreateReservationHandler {
             spotId,
             startTime: start,
             endTime: end,
-            totalPrice
+            totalPrice,
+            vehicleId: vehicleId || null,
         });
     }
 }

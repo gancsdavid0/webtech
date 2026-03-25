@@ -1,4 +1,5 @@
 import { PrismaClient, Role, SpotType } from '@prisma/client';
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -6,12 +7,15 @@ async function main() {
     console.log('Adatbázis feltöltése folyamatban...');
 
     // 1. Felhasználók létrehozása
+    const hashedPassword = await bcrypt.hash('password123', 10);
     const admin = await prisma.user.upsert({
         where: { email: 'admin@parking.hu' },
-        update: {},
+        update: {
+            password: hashedPassword,
+        },
         create: {
             email: 'admin@parking.hu',
-            password: 'password123', // Élesben ide hash kell!
+            password: hashedPassword,
             fullName: 'Rendszer Adminisztrátor',
             role: Role.ADMIN,
         },
@@ -19,10 +23,12 @@ async function main() {
 
     const testUser = await prisma.user.upsert({
         where: { email: 'user@example.hu' },
-        update: {},
+        update: {
+            password: hashedPassword,
+        },
         create: {
             email: 'user@example.hu',
-            password: 'password123',
+            password: hashedPassword,
             fullName: 'Teszt Dávid',
             role: Role.USER,
         },
