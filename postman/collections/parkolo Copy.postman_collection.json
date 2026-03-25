@@ -508,7 +508,7 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "parking-zone törlése",
           "id": "c8ba2558-104d-490b-84b8-36b6c979e271",
           "request": {
             "method": "DELETE",

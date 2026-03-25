@@ -1,8 +1,8 @@
 import type { Request, Response } from 'express';
 import { ParkingZoneRepository } from '../../infrastructure/repositories/parking-zone.repository.js';
 import { CreateParkingZoneSchema } from '../../domain/dtos/parking-zone.dto.js';
-import {CreateParkingZoneHandler} from "../../application/reservation/handlers/CreateParkingZoneHandler.js";
-import {DeleteParkingZoneHandler} from "../../application/reservation/handlers/DeleteParkingZoneHandler.js";
+import {CreateParkingZoneHandler} from "../../application/parking-zone/handlers/CreateParkingZoneHandler.js";
+import {DeleteParkingZoneHandler} from "../../application/parking-zone/handlers/DeleteParkingZoneHandler.js";
 
 export class ParkingZoneController {
     private createHandler = new CreateParkingZoneHandler();

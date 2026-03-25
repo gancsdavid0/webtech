@@ -1,9 +1,9 @@
 import type { Request, Response } from 'express';
 import {CreateParkingSpotSchema, UpdateParkingSpotSchema} from '../../domain/dtos/parking-spot.dto.js';
-import {CreateParkingSpotHandler} from "../../application/reservation/handlers/CreateParkingSpotHandler.js";
+import {CreateParkingSpotHandler} from "../../application/parking-spot/handlers/CreateParkingSpotHandler.js";
 import {ParkingSpotRepository} from "../../infrastructure/repositories/parking-spot.repository.js";
-import {UpdateParkingSpotHandler} from "../../application/reservation/handlers/UpdateParkingSpotHandler.js";
-import {DeleteParkingSpotHandler} from "../../application/reservation/handlers/DeleteParkingSpotHandler.js";
+import {UpdateParkingSpotHandler} from "../../application/parking-spot/handlers/UpdateParkingSpotHandler.js";
+import {DeleteParkingSpotHandler} from "../../application/parking-spot/handlers/DeleteParkingSpotHandler.js";
 
 export class ParkingSpotController {
     private repo = new ParkingSpotRepository();
