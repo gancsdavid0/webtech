@@ -61,7 +61,7 @@ model Reservation {
 
 model ParkingZone {
   id        Int           @id @default(autoincrement())
-  name      String
+  name      String        @unique
   address   String
   city      String?        @default("Budapest")
   spots     ParkingSpot[]
