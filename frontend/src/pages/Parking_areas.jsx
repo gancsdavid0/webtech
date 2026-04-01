@@ -46,7 +46,7 @@ const Parking_areas = () => {
                   <ParkingZoneCard 
                     key={index} 
                     zone={zone} 
-                    buttonText="Foglalás"
+                    buttonText={t.book_now}
                   />
                 ))}
               </div>
@@ -54,7 +54,7 @@ const Parking_areas = () => {
 
             {!loading && parkingZones.length === 0 && (
               <p className="text-center text-gray-600 text-xl mt-10">
-                Jelenleg nincsenek elérhető területek.
+                {t.no_parking_areas}
               </p>
             )}
           </div>

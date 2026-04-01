@@ -59,7 +59,9 @@ export const translations = {
     confirm_delete: "Biztos törölni szeretnéd ezt a felhasználót?",
     delete_error: "Hiba történt a felhasználó törlése során!",
     search_placeholder: "Keresés név vagy email alapján",
-    update_error: "Hiba történt a módosítás során!"
+    update_error: "Hiba történt a módosítás során!",
+    park_description: "Elektromos és mozgáskorlátozott parkolóhelyek is elérhetőek!",
+    no_parking_areas: "Még nincsenek parkolók hozzáadva!"
   },
 
   // Angol nyelv
@@ -121,7 +123,9 @@ export const translations = {
     confirm_delete: "Are you sure you want to delete this user?",
     delete_error: "An error occurred while deleting the user!",
     search_placeholder: "Search by name or email",
-    update_error: "An error occurred during the modification!"
+    update_error: "An error occurred during the modification!",
+    park_description: "Electric and disabled parking spaces are also available!",
+    no_parking_areas: "No parking spaces have been added yet!"
   },
 
   // Japán nyelv
@@ -183,7 +187,9 @@ export const translations = {
     confirm_delete: "このユーザーを削除してもよろしいですか？",
     delete_error: "ユーザー削除中にエラーが発生しました！",
     search_placeholder: "名前またはメールアドレスで検索",
-    update_error: "変更中にエラーが発生しました！"
+    update_error: "変更中にエラーが発生しました！",
+    park_description: "電気自動車用駐車スペースと身体障碍者用駐車スペースもご利用いただけます！",
+    no_parking_areas: "駐車スペースはまだ追加されていません！"
   },
 
   // Indonéz nyelv
@@ -245,7 +251,9 @@ export const translations = {
     confirm_delete: "Apakah Anda yakin ingin menghapus pengguna ini?",
     delete_error: "Terjadi kesalahan saat menghapus pengguna!",
     search_placeholder: "Cari berdasarkan nama atau email",
-    update_error: "Terjadi kesalahan selama modifikasi!"
+    update_error: "Terjadi kesalahan selama modifikasi!",
+    park_description: "Tersedia juga tempat parkir khusus listrik dan parkir untuk penyandang disabilitas!",
+    no_parking_areas: "Belum ada tempat parkir yang ditambahkan!"
   },
 
   // Német nyelv
@@ -307,6 +315,8 @@ export const translations = {
     confirm_delete: "Möchten Sie diesen Benutzer wirklich löschen?",
     delete_error: "Beim Löschen des Benutzers ist ein Fehler aufgetreten!",
     search_placeholder: "Suche nach Name oder E-Mail-Adresse",
-    update_error: "Bei der Änderung ist ein Fehler aufgetreten!"
+    update_error: "Bei der Änderung ist ein Fehler aufgetreten!",
+    park_description: "Es stehen auch elektrische Parkplätze und Behindertenparkplätze zur Verfügung!",
+    no_parking_areas: "Es wurden noch keine Parkplätze hinzugefügt!"
   }
 };
