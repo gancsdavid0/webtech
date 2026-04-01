@@ -1,3 +1,4 @@
 .idea
 .postman
 package-lock.json
+backend/prisma/migrations/20260401124511_init/migration.sql
