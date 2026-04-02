@@ -42,14 +42,14 @@ const Admin = () => {
       label: t.parking_management, 
       count: '...', 
       color: 'text-emerald-600',
-      path: '/admin/parking'
+      path: '/admin/parking_management'
     },
     { 
       icon: CalendarCheck, 
       label: t.reservations, 
       count: '...', 
       color: 'text-emerald-600',
-      path: '/admin/reservations'
+      path: '/admin/reservation_management'
     },
   ];
 
