@@ -46,7 +46,7 @@ export const translations = {
     missing_id_error: "Hiba: Hiányzó azonosító!",
     administration: "Adminisztráció",
     users_management: "Felhasználók kezelése",
-    parking_management: "Parkolóhelyek kezelése",
+    parking_management: "Parkolóterületek kezelése",
     reservations: "Foglalások kezelése",
     manage_details: "Kattints ide a menü megnyitásához.",
     admin_access: "Rendszergazdai hozzáférés aktív",
@@ -56,12 +56,18 @@ export const translations = {
     role: "Szerepkör",
     created_at: "Létrehozás dátuma",
     updated_at: "Módosítás dátuma",
-    confirm_delete: "Biztos törölni szeretnéd ezt a felhasználót?",
+    confirm_delete: "Biztos törölni szeretnéd?",
     delete_error: "Hiba történt a felhasználó törlése során!",
     search_placeholder: "Keresés név vagy email alapján",
     update_error: "Hiba történt a módosítás során!",
     park_description: "Elektromos és mozgáskorlátozott parkolóhelyek is elérhetőek!",
-    no_parking_areas: "Még nincsenek parkolók hozzáadva!"
+    no_parking_areas: "Még nincsenek parkolók hozzáadva!",
+    edit: "Módosítás",
+    name: "Név",
+    address: "Cím",
+    new_parking_area: "+ Új parkolóház",
+    delete: "Törlés",
+    delete_success: "Sikeres törlés!"
   },
 
   // Angol nyelv
@@ -110,7 +116,7 @@ export const translations = {
     missing_id_error: "Error: Missing ID!",
     administration: "Administration",
     users_management: "User management",
-    parking_management: "Manage parking spots",
+    parking_management: "Manage parking zones",
     reservations: "Manage reservations",
     manage_details: "Click here to open menu.",
     admin_access: "Administrator access active",
@@ -120,12 +126,18 @@ export const translations = {
     role: "Role",
     created_at: "Created at",
     updated_at: "Updated at",
-    confirm_delete: "Are you sure you want to delete this user?",
+    confirm_delete: "Are you sure you want to delete?",
     delete_error: "An error occurred while deleting the user!",
     search_placeholder: "Search by name or email",
     update_error: "An error occurred during the modification!",
     park_description: "Electric and disabled parking spaces are also available!",
-    no_parking_areas: "No parking spaces have been added yet!"
+    no_parking_areas: "No parking spaces have been added yet!",
+    edit: "Edit",
+    name: "Name",
+    address: "Address",
+    new_parking_area: "+ New parking area",
+    delete: "Delete",
+    delete_success: "Successful deletion!"
   },
 
   // Japán nyelv
@@ -189,7 +201,13 @@ export const translations = {
     search_placeholder: "名前またはメールアドレスで検索",
     update_error: "変更中にエラーが発生しました！",
     park_description: "電気自動車用駐車スペースと身体障碍者用駐車スペースもご利用いただけます！",
-    no_parking_areas: "駐車スペースはまだ追加されていません！"
+    no_parking_areas: "駐車スペースはまだ追加されていません！",
+    edit: "編集",
+    name: "名前",
+    address: "住所",
+    new_parking_area: "+ 新しい駐車場",
+    delete: "消去",
+    delete_success: "削除に成功しました!"
   },
 
   // Indonéz nyelv
@@ -253,7 +271,13 @@ export const translations = {
     search_placeholder: "Cari berdasarkan nama atau email",
     update_error: "Terjadi kesalahan selama modifikasi!",
     park_description: "Tersedia juga tempat parkir khusus listrik dan parkir untuk penyandang disabilitas!",
-    no_parking_areas: "Belum ada tempat parkir yang ditambahkan!"
+    no_parking_areas: "Belum ada tempat parkir yang ditambahkan!",
+    edit: "Sunting",
+    name: "Nama",
+    address: "Alamat",
+    new_parking_area: "+ Area parkir baru",
+    delete: "Menghapus",
+    delete_success: "Penghapusan berhasil!"
   },
 
   // Német nyelv
@@ -312,11 +336,17 @@ export const translations = {
     role: "Rolle",
     created_at: "Erstellungsdatum",
     updated_at: "Datum der Änderung",
-    confirm_delete: "Möchten Sie diesen Benutzer wirklich löschen?",
+    confirm_delete: "Möchten Sie die Datei wirklich löschen?",
     delete_error: "Beim Löschen des Benutzers ist ein Fehler aufgetreten!",
     search_placeholder: "Suche nach Name oder E-Mail-Adresse",
     update_error: "Bei der Änderung ist ein Fehler aufgetreten!",
     park_description: "Es stehen auch elektrische Parkplätze und Behindertenparkplätze zur Verfügung!",
-    no_parking_areas: "Es wurden noch keine Parkplätze hinzugefügt!"
+    no_parking_areas: "Es wurden noch keine Parkplätze hinzugefügt!",
+    edit: "Bearbeiten",
+    name: "Name",
+    address: "Adresse",
+    new_parking_area: "+ Neuer Parkplatz",
+    delete: "Löschen",
+    delete_success: "Erfolgreiche Löschung!"
   }
 };
