@@ -15,5 +15,11 @@ export const useParkingManagement = () => {
     setZones(prev => prev.filter(z => z.id !== id));
   };
 
-  return { zones, loading, deleteZone };
+  const addZone = async (zoneData) => {
+    const newZone = await parkingService.createZone(zoneData);
+    setZones(prev => [...prev, newZone]);
+  };
+
+  return { zones, loading, deleteZone, addZone };
 };
+

@@ -67,7 +67,9 @@ export const translations = {
     address: "Cím",
     new_parking_area: "+ Új parkolóház",
     delete: "Törlés",
-    delete_success: "Sikeres törlés!"
+    delete_success: "Sikeres törlés!",
+    add_zone: "Parkolóterület hozzáadása",
+    add_description: "Leírás"
   },
 
   // Angol nyelv
@@ -137,7 +139,9 @@ export const translations = {
     address: "Address",
     new_parking_area: "+ New parking area",
     delete: "Delete",
-    delete_success: "Successful deletion!"
+    delete_success: "Successful deletion!",
+    add_zone: "Create Parking Area",
+    add_description: "Description"
   },
 
   // Japán nyelv
@@ -207,7 +211,9 @@ export const translations = {
     address: "住所",
     new_parking_area: "+ 新しい駐車場",
     delete: "消去",
-    delete_success: "削除に成功しました!"
+    delete_success: "削除に成功しました!",
+    add_zone: "駐車場を作成する",
+    add_description: "説明"
   },
 
   // Indonéz nyelv
@@ -277,7 +283,9 @@ export const translations = {
     address: "Alamat",
     new_parking_area: "+ Area parkir baru",
     delete: "Menghapus",
-    delete_success: "Penghapusan berhasil!"
+    delete_success: "Penghapusan berhasil!",
+    add_zone: "Buat Area Parkir",
+    add_description: "Keterangan"
   },
 
   // Német nyelv
@@ -347,6 +355,8 @@ export const translations = {
     address: "Adresse",
     new_parking_area: "+ Neuer Parkplatz",
     delete: "Löschen",
-    delete_success: "Erfolgreiche Löschung!"
+    delete_success: "Erfolgreiche Löschung!",
+    add_zone: "Parkplatz erstellen",
+    add_description: "Beschreibung"
   }
 };

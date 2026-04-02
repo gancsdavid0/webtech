@@ -19,4 +19,14 @@ export const parkingService = {
     if (!response.ok) throw new Error('Delete failed');
     return true;
   },
+
+  createZone: async (zoneData) => {
+    const response = await fetch('http://localhost:3000/api/parking-zone/', {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(zoneData),
+    });
+    if (!response.ok) throw new Error('Error');
+    return await response.json();
+  }
 };
