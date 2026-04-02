@@ -37,6 +37,9 @@ docker compose up --watch
 
 # 4. Frontend futtatása
 ```bash
+# Frontend mappában is telepíteni kell a függőségeket
+npm install
+
 # Node futtatása
 npm run dev
 ```
@@ -47,6 +50,8 @@ npm run dev
 - A felhasználó ki tud jelentkezni
 - A felhasználó meg tudja nézni a saját adatait és módosítani azokat
 - A rendszergazda meg tudja nézni az összes felhasználót, és igény esetén törölni azokat, valamint keresni közöttük
+- A felhasználó meg tudja nézni a parkoló területeket (név, cím, leírás)
+- A rendszergazda meg tudja nézni a parkoló területeket, és igény esetén törölni azokat, vagy újakat létrehozni
 
 # Jelenleg elkészült oldalak
 - Főoldal
@@ -55,7 +60,8 @@ npm run dev
 - Sikeres bejelentkezés / regisztráció oldal
 - Hiba a bejelentkezéskor / regisztrációkor oldal
 - Felhasználói profil oldal
-- Admin oldal (Felhasználók kezelése)
+- Admin oldal (Felhasználók kezelése, Parkolóterületek kezelése)
+- Parkoló területek oldal (Bejelentkezés nélkül is elérhető)
 
 # Elérhető nyelvek
 - Magyar
