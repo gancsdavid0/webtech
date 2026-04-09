@@ -129,7 +129,7 @@ async function main() {
 
 main()
     .catch((e) => {
-        console.error('❌ Hiba a seedelés közben:', e);
+        console.error('Hiba a seedelés közben:', e);
         process.exit(1);
     })
     .finally(async () => {
