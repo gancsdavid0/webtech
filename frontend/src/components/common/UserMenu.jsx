@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../translations.js';
-import { User, ChevronDown, Settings, List, LogOut, ShieldCheck } from 'lucide-react';
+import { User, ChevronDown, Settings, List, LogOut, ShieldCheck, Car } from 'lucide-react';
 import MenuItem from './MenuItem';
 
 const UserMenu = ({ onLogout }) => {
@@ -109,6 +109,13 @@ const UserMenu = ({ onLogout }) => {
               icon={Settings} 
               label={t.profile_settings}
               onClick={() => { navigate('/profile'); setIsOpen(false); }} 
+            />
+
+            {/* Járműveim gomb */}
+            <MenuItem 
+              icon={Car}
+              label={t.my_vehicles}
+              onClick={() => { navigate('/vehicles'); setIsOpen(false); }}
             />
             
             {/* Foglalásaim gomb */}

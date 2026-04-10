@@ -69,7 +69,8 @@ export const translations = {
     delete: "Törlés",
     delete_success: "Sikeres törlés!",
     add_zone: "Parkolóterület hozzáadása",
-    add_description: "Leírás"
+    add_description: "Leírás",
+    my_vehicles: "Járműveim"
   },
 
   // Angol nyelv
@@ -141,7 +142,8 @@ export const translations = {
     delete: "Delete",
     delete_success: "Successful deletion!",
     add_zone: "Create Parking Area",
-    add_description: "Description"
+    add_description: "Description",
+    my_vehicles: "My vehicles"
   },
 
   // Japán nyelv
@@ -213,7 +215,8 @@ export const translations = {
     delete: "消去",
     delete_success: "削除に成功しました!",
     add_zone: "駐車場を作成する",
-    add_description: "説明"
+    add_description: "説明",
+    my_vehicles: "私の車両"
   },
 
   // Indonéz nyelv
@@ -285,7 +288,8 @@ export const translations = {
     delete: "Menghapus",
     delete_success: "Penghapusan berhasil!",
     add_zone: "Buat Area Parkir",
-    add_description: "Keterangan"
+    add_description: "Keterangan",
+    my_vehicles: "Kendaraan saya"
   },
 
   // Német nyelv
@@ -357,6 +361,7 @@ export const translations = {
     delete: "Löschen",
     delete_success: "Erfolgreiche Löschung!",
     add_zone: "Parkplatz erstellen",
-    add_description: "Beschreibung"
+    add_description: "Beschreibung",
+    my_vehicles: "Meine Fahrzeuge"
   }
 };

@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Admin from './pages/Admin';
 import User_management from './pages/User_management';
 import Parking_management from './pages/Parking_management';
+import Vehicles from './pages/Vehicles';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/admin" element={<Admin />}/>
           <Route path="/admin/user_management" element={<User_management />} />
           <Route path="/admin/parking_management" element={<Parking_management />} />
+          <Route path="/vehicles" element={<Vehicles />} />
         </Routes>
       </Router>
     </LanguageProvider>
