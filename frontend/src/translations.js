@@ -70,7 +70,15 @@ export const translations = {
     delete_success: "Sikeres törlés!",
     add_zone: "Parkolóterület hozzáadása",
     add_description: "Leírás",
-    my_vehicles: "Járműveim"
+    my_vehicles: "Járműveim",
+    new_vehicle: "Új jármű hozzáadása",
+    make: "Márka",
+    model: "Típus",
+    license_plate: "Rendszám",
+    vehicle_added: "Jármű hozzáadása sikeres!",
+    save_error: "Hiba történt a mentés során!",
+    vdelete_error: "Hiba történt a jármű törlése során!",
+    no_vehicles: "Még nincsenek hozzáadott járműveid!"
   },
 
   // Angol nyelv
@@ -143,7 +151,15 @@ export const translations = {
     delete_success: "Successful deletion!",
     add_zone: "Create Parking Area",
     add_description: "Description",
-    my_vehicles: "My vehicles"
+    my_vehicles: "My vehicles",
+    new_vehicle: "Add a new vehicle",
+    make: "Brand",
+    model: "Model",
+    license_plate: "Registration number",
+    vehicle_added: "Vehicle added successfully!",
+    save_error: "An error occurred while saving!",
+    vdelete_error: "An error occurred while deleting the vehicle!",
+    no_vehicles: "You have no vehicles added yet!"
   },
 
   // Japán nyelv
@@ -216,7 +232,15 @@ export const translations = {
     delete_success: "削除に成功しました!",
     add_zone: "駐車場を作成する",
     add_description: "説明",
-    my_vehicles: "私の車両"
+    my_vehicles: "私の車両",
+    new_vehicle: "新しい車両を追加する",
+    make: "ブランド",
+    model: "モデル",
+    license_plate: "登録番号",
+    vehicle_added: "車両が正常に追加されました。",
+    save_error: "保存中にエラーが発生しました！",
+    vdelete_error: "車両の削除中にエラーが発生しました！",
+    no_vehicles: "まだ車両が追加されていません！"
   },
 
   // Indonéz nyelv
@@ -289,7 +313,15 @@ export const translations = {
     delete_success: "Penghapusan berhasil!",
     add_zone: "Buat Area Parkir",
     add_description: "Keterangan",
-    my_vehicles: "Kendaraan saya"
+    my_vehicles: "Kendaraan saya",
+    new_vehicle: "Tambahkan kendaraan baru",
+    make: "Merek",
+    model: "Model",
+    license_plate: "Nomor pendaftaran",
+    vehicle_added: "Kendaraan berhasil ditambahkan!",
+    save_error: "Terjadi kesalahan saat menyimpan!",
+    vdelete_error: "Terjadi kesalahan saat menghapus kendaraan!",
+    no_vehicles: "Anda belum menambahkan kendaraan apa pun!"
   },
 
   // Német nyelv
@@ -362,6 +394,14 @@ export const translations = {
     delete_success: "Erfolgreiche Löschung!",
     add_zone: "Parkplatz erstellen",
     add_description: "Beschreibung",
-    my_vehicles: "Meine Fahrzeuge"
+    my_vehicles: "Meine Fahrzeuge",
+    new_vehicle: "Fügen Sie ein neues Fahrzeug hinzu",
+    make: "Marke",
+    model: "Modell",
+    license_plate: "Registrierungsnummer",
+    vehicle_added: "Fahrzeug erfolgreich hinzugefügt!",
+    save_error: "Beim Speichern ist ein Fehler aufgetreten!",
+    vdelete_error: "Beim Löschen des Fahrzeugs ist ein Fehler aufgetreten!",
+    no_vehicles: "Sie haben noch keine Fahrzeuge hinzugefügt!"
   }
 };
