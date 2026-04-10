@@ -52,6 +52,7 @@ npm run dev
 - A rendszergazda meg tudja nézni az összes felhasználót, és igény esetén törölni azokat, valamint keresni közöttük
 - A felhasználó meg tudja nézni a parkoló területeket (név, cím, leírás)
 - A rendszergazda meg tudja nézni a parkoló területeket, és igény esetén törölni azokat, vagy újakat létrehozni
+- A felhasználó meg tudja tekinteni a jáműveit, újakat hozzáadni vagy tötölni
 
 # Jelenleg elkészült oldalak
 - Főoldal
@@ -62,6 +63,7 @@ npm run dev
 - Felhasználói profil oldal
 - Admin oldal (Felhasználók kezelése, Parkolóterületek kezelése)
 - Parkoló területek oldal (Bejelentkezés nélkül is elérhető)
+- Járműveim oldal (Bejelentkezett felhasználó járműveinek listázása, hozzáadása, törlése)
 
 # Elérhető nyelvek
 - Magyar
