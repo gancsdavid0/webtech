@@ -9,7 +9,7 @@ export const useParkingZones = () => {
     const fetchZones = async () => {
       try {
         const response = await fetch('http://localhost:3000/api/parking-zone');
-        if (!response.ok) throw new Error('Hiba a lekérésnél');
+        if (!response.ok) throw new Error(response);
         const data = await response.json();
         setParkingZones(data);
       } catch (err) {

@@ -78,7 +78,10 @@ export const translations = {
     vehicle_added: "Jármű hozzáadása sikeres!",
     save_error: "Hiba történt a mentés során!",
     vdelete_error: "Hiba történt a jármű törlése során!",
-    no_vehicles: "Még nincsenek hozzáadott járműveid!"
+    no_vehicles: "Még nincsenek hozzáadott járműveid!",
+    select: "Kiválasztás",
+    selected: "Kiválasztva",
+    choose_zone: "Válassz parkolózónát"
   },
 
   // Angol nyelv
@@ -159,7 +162,10 @@ export const translations = {
     vehicle_added: "Vehicle added successfully!",
     save_error: "An error occurred while saving!",
     vdelete_error: "An error occurred while deleting the vehicle!",
-    no_vehicles: "You have no vehicles added yet!"
+    no_vehicles: "You have no vehicles added yet!",
+    select: "Select",
+    selected: "Selected",
+    choose_zone: "Choose parking zone"
   },
 
   // Japán nyelv
@@ -240,7 +246,10 @@ export const translations = {
     vehicle_added: "車両が正常に追加されました。",
     save_error: "保存中にエラーが発生しました！",
     vdelete_error: "車両の削除中にエラーが発生しました！",
-    no_vehicles: "まだ車両が追加されていません！"
+    no_vehicles: "まだ車両が追加されていません！",
+    select: "選択",
+    selected: "選択済み",
+    choose_zone: "駐車ゾーンを選択してください"
   },
 
   // Indonéz nyelv
@@ -321,7 +330,10 @@ export const translations = {
     vehicle_added: "Kendaraan berhasil ditambahkan!",
     save_error: "Terjadi kesalahan saat menyimpan!",
     vdelete_error: "Terjadi kesalahan saat menghapus kendaraan!",
-    no_vehicles: "Anda belum menambahkan kendaraan apa pun!"
+    no_vehicles: "Anda belum menambahkan kendaraan apa pun!",
+    select: "Memilih",
+    selected: "Terpilih",
+    choose_zone: "Pilih zona parkir"
   },
 
   // Német nyelv
@@ -402,6 +414,9 @@ export const translations = {
     vehicle_added: "Fahrzeug erfolgreich hinzugefügt!",
     save_error: "Beim Speichern ist ein Fehler aufgetreten!",
     vdelete_error: "Beim Löschen des Fahrzeugs ist ein Fehler aufgetreten!",
-    no_vehicles: "Sie haben noch keine Fahrzeuge hinzugefügt!"
+    no_vehicles: "Sie haben noch keine Fahrzeuge hinzugefügt!",
+    select: "Wählen",
+    selected: "Ausgewählt",
+    choose_zone: "Parkzone wählen"
   }
 };
