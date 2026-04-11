@@ -12,6 +12,7 @@ import Parking_management from './pages/Parking_management';
 import Vehicles from './pages/Vehicles';
 import Booking from './pages/Booking';
 import My_reservations from './pages/My_reservations';
+import Reservation_management from './pages/Reservation_management';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/my-bookings" element={<My_reservations />} />
+          <Route path="/admin/reservation_management" element={<Reservation_management />} />
         </Routes>
       </Router>
     </LanguageProvider>

@@ -102,7 +102,10 @@ export const translations = {
     back_to_my_reservations: "Vissza a foglalásaimhoz",
     no_reservation: "Még nincsen aktív foglalásod!",
     cancel_reservation: "Lemondás",
-    confirm_cancel: "Biztos le szeretnéd mondani a foglalást?"
+    confirm_cancel: "Biztos le szeretnéd mondani a foglalást?",
+    uname: "Felhasználó",
+    status: "Státusz",
+    ammount: "Összeg"
   },
 
   // Angol nyelv
@@ -207,7 +210,10 @@ export const translations = {
     back_to_my_reservations: "Back to my reservations",
     no_reservation: "You don't have any active reservations yet!",
     cancel_reservation: "Cancel reservation",
-    confirm_cancel: "Are you sure you want to cancel your reservation?"
+    confirm_cancel: "Are you sure you want to cancel your reservation?",
+    uname: "User",
+    status: "Status",
+    ammount: "Ammount"
   },
 
   // Japán nyelv
@@ -312,7 +318,10 @@ export const translations = {
     back_to_my_reservations: "予約に戻る",
     no_reservation: "まだ有効な予約がありません！",
     cancel_reservation: "予約をキャンセルする",
-    confirm_cancel: "本当に予約をキャンセルしますか？"
+    confirm_cancel: "本当に予約をキャンセルしますか？",
+    uname: "ユーザー",
+    status: "状態",
+    ammount: "アンマウント"
   },
 
   // Indonéz nyelv
@@ -417,7 +426,10 @@ export const translations = {
     back_to_my_reservations: "Kembali ke reservasi saya",
     no_reservation: "Anda belum memiliki reservasi aktif!",
     cancel_reservation: "Batalkan reservasi",
-    confirm_cancel: "Apakah Anda yakin ingin membatalkan reservasi Anda?"
+    confirm_cancel: "Apakah Anda yakin ingin membatalkan reservasi Anda?",
+    uname: "Pengguna",
+    status: "Status",
+    ammount: "Jumlah"
   },
 
   // Német nyelv
@@ -522,6 +534,9 @@ export const translations = {
     back_to_my_reservations: "Zurück zu meinen Reservierungen",
     no_reservation: "Sie haben noch keine aktiven Reservierungen!",
     cancel_reservation: "Reservierung stornieren",
-    confirm_cancel: "Sind Sie sicher, dass Sie Ihre Reservierung stornieren möchten?"
+    confirm_cancel: "Sind Sie sicher, dass Sie Ihre Reservierung stornieren möchten?",
+    uname: "Benutzer",
+    status: "Status",
+    ammount: "Betrag"
   }
 };
