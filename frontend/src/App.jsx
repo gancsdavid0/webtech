@@ -11,6 +11,7 @@ import User_management from './pages/User_management';
 import Parking_management from './pages/Parking_management';
 import Vehicles from './pages/Vehicles';
 import Booking from './pages/Booking';
+import My_reservations from './pages/My_reservations';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/admin/parking_management" element={<Parking_management />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/my-bookings" element={<My_reservations />} />
         </Routes>
       </Router>
     </LanguageProvider>

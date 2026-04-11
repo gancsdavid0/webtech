@@ -4,6 +4,6 @@ export class CreateReservationCommand {
         public readonly spotId: number,
         public readonly startTime: Date,
         public readonly endTime: Date,
-        public readonly vehicleId?: number,
+        public readonly vehicleId: number,
     ) {}
 }

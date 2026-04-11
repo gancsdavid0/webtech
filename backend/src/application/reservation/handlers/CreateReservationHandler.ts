@@ -48,7 +48,7 @@ export class CreateReservationHandler {
             startTime: start,
             endTime: end,
             totalPrice,
-            vehicleId: vehicleId || null,
+            vehicleId: vehicleId,
         });
     }
 }

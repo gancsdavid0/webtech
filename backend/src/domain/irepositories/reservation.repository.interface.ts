@@ -3,10 +3,10 @@ import type { Reservation, ReservationStatus } from '@prisma/client';
 export interface CreateReservationData {
     userId: number;
     spotId: number;
+    vehicleId: number;
     startTime: Date;
     endTime: Date;
     totalPrice: number;
-    vehicleId?: number | null;
 }
 
 export interface IReservationRepository {

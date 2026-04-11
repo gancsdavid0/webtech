@@ -55,6 +55,7 @@ export class ReservationRepository implements IReservationRepository {
             data: {
                 userId: data.userId,
                 spotId: data.spotId,
+                vehicleId: data.vehicleId,
                 startTime: data.startTime,
                 endTime: data.endTime,
                 totalPrice: data.totalPrice,

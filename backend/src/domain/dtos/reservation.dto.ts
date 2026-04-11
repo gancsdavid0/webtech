@@ -3,7 +3,7 @@ import {ReservationStatus} from "@prisma/client";
 
 export const CreateReservationSchema = z.object({
     spotId: z.number({ message: "Parkolóhely azonosító kötelező" }),
-    vehicleId: z.number().optional(),
+    vehicleId: z.number(),
     startTime: z.iso.datetime({ message: "Érvénytelen kezdési időpont" }),
     endTime: z.iso.datetime({ message: "Érvénytelen lejárati időpont" }),
 });

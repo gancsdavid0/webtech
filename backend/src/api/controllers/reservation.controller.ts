@@ -31,7 +31,8 @@ export class ReservationController{
                 req.user.id,
                 validatedData.spotId,
                 new Date(validatedData.startTime),
-                new Date(validatedData.endTime)
+                new Date(validatedData.endTime),
+                validatedData.vehicleId
             );
             const result = await this.CreateHandler.handle(command);
             res.status(201).json(result);
