@@ -1,7 +1,8 @@
-import { ChevronDown, ChevronUp, MapPin, Loader2 } from 'lucide-react';
-import ZoneCard from '../layout/ZoneCard';
+import React from 'react';
+import { ChevronDown, ChevronUp, Car, Loader2 } from 'lucide-react';
+import VehicleCard from '../layout/VehicleCard';
 
-const ZoneSelector = ({ zones, loading, error, selectedZone, onSelect, isOpen, setIsOpen, t }) => {
+const VehicleSelector = ({ vehicles, loading, selectedVehicle, onSelect, isOpen, setIsOpen, t }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-white/50">
       <button 
@@ -11,9 +12,9 @@ const ZoneSelector = ({ zones, loading, error, selectedZone, onSelect, isOpen, s
         }`}
       >
         <div className="flex items-center gap-3">
-          <MapPin size={24} />
+          <Car size={24} className={isOpen ? 'text-blue-200' : 'text-blue-600'} />
           <span className="text-xl font-semibold">
-            {selectedZone ? `${t.selected}: ${selectedZone.name}` : t.choose_zone}
+            {selectedVehicle ? `${t.vehicle}: ${selectedVehicle.licensePlate}` : t.select_vehicle}
           </span>
         </div>
         {isOpen ? <ChevronUp size={28} /> : <ChevronDown size={28} />}
@@ -21,22 +22,24 @@ const ZoneSelector = ({ zones, loading, error, selectedZone, onSelect, isOpen, s
 
       {isOpen && (
         <div className="p-6 bg-gray-50/50">
-          {loading && (
+          {loading ? (
             <div className="flex flex-col items-center py-10 gap-3">
               <Loader2 className="animate-spin text-blue-600" size={40} />
               <p className="text-gray-600 font-medium">{t.loading}</p>
             </div>
-          )}
-          {error && <div className="text-red-500 text-center p-4">{error}</div>}
-          {!loading && !error && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-top">
-              {zones.map(zone => (
-                <ZoneCard 
-                  key={zone.id} 
-                  zone={zone} 
+          ) : vehicles.length === 0 ? (
+            <div className="text-center py-6 text-gray-500 italic">
+              {t.no_vehicles}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in slide-in-from-top duration-300">
+              {vehicles.map(vehicle => (
+                <VehicleCard 
+                  key={vehicle.id} 
+                  vehicle={vehicle} 
                   onSelect={onSelect} 
-                  isSelected={selectedZone?.id === zone.id}
-                  t={t} 
+                  isSelected={selectedVehicle?.id === vehicle.id}
+                  t={t}
                 />
               ))}
             </div>
@@ -47,4 +50,4 @@ const ZoneSelector = ({ zones, loading, error, selectedZone, onSelect, isOpen, s
   );
 };
 
-export default ZoneSelector;
+export default VehicleSelector;

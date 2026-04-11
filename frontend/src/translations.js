@@ -81,7 +81,9 @@ export const translations = {
     no_vehicles: "Még nincsenek hozzáadott járműveid!",
     select: "Kiválasztás",
     selected: "Kiválasztva",
-    choose_zone: "Válassz parkolózónát"
+    choose_zone: "Válassz parkolózónát",
+    vehicle: "Jármű",
+    select_vehicle: "Válaszd ki a járművet"
   },
 
   // Angol nyelv
@@ -165,7 +167,9 @@ export const translations = {
     no_vehicles: "You have no vehicles added yet!",
     select: "Select",
     selected: "Selected",
-    choose_zone: "Choose parking zone"
+    choose_zone: "Choose parking zone",
+    vehicle: "Vehicle",
+    select_vehicle: "Select your vehicle"
   },
 
   // Japán nyelv
@@ -249,7 +253,9 @@ export const translations = {
     no_vehicles: "まだ車両が追加されていません！",
     select: "選択",
     selected: "選択済み",
-    choose_zone: "駐車ゾーンを選択してください"
+    choose_zone: "駐車ゾーンを選択してください",
+    vehicle: "車両",
+    select_vehicle: "あなたの車両を選択してください"
   },
 
   // Indonéz nyelv
@@ -333,7 +339,9 @@ export const translations = {
     no_vehicles: "Anda belum menambahkan kendaraan apa pun!",
     select: "Memilih",
     selected: "Terpilih",
-    choose_zone: "Pilih zona parkir"
+    choose_zone: "Pilih zona parkir",
+    vehicle: "Kendaraan",
+    select_vehicle: "Pilih kendaraan Anda"
   },
 
   // Német nyelv
@@ -417,6 +425,8 @@ export const translations = {
     no_vehicles: "Sie haben noch keine Fahrzeuge hinzugefügt!",
     select: "Wählen",
     selected: "Ausgewählt",
-    choose_zone: "Parkzone wählen"
+    choose_zone: "Parkzone wählen",
+    vehicle: "Fahrzeug",
+    select_vehicle: "Wählen Sie Ihr Fahrzeug aus"
   }
 };
