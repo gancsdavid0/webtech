@@ -8,26 +8,38 @@ import Footer from '../components/layout/Footer.jsx';
 // Hook-ok
 import { useParkingZones } from '../hooks/useParkingZones';
 import { useVehicles } from '../hooks/useVehicles';
+import { useParkingSpots } from '../hooks/useParkingSpots';
 
 // Komponensek
 import ZoneSelector from '../components/common/ZoneSelector';
 import VehicleSelector from '../components/common/VehicleSelector';
+import SpotSelector from '../components/common/SpotSelector';
 
 const Booking = () => {
   const { currentLang } = useLanguage();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const t = translations[currentLang.code];
 
-  // Adatok betöltése
+  // --- ADATOK BETÖLTÉSE ---
   const { parkingZones, loading: zonesLoading, error: zonesError } = useParkingZones();
   const { vehicles, loading: vehiclesLoading } = useVehicles();
 
-  // Állapotkezelés - Választás és Lenyitás
+  // --- ÁLLAPOTKEZELÉS ---
+  
+  // 1. Lépés: Parkolóház
   const [isHouseOpen, setIsHouseOpen] = useState(true);
   const [selectedHouse, setSelectedHouse] = useState(null);
   
+  // 2. Lépés: Jármű
   const [isVehicleOpen, setIsVehicleOpen] = useState(false);
   const [selectedVehicle, setSelectedVehicle] = useState(null);
+
+  // 3. Lépés: Parkolóhely
+  const [isSpotOpen, setIsSpotOpen] = useState(false);
+  const [selectedSpot, setSelectedSpot] = useState(null);
+
+  // A parkolóhelyeket csak akkor kérjük le, ha már van kiválasztott ház
+  const { spots, loading: spotsLoading } = useParkingSpots(selectedHouse?.id);
 
   useEffect(() => {
     const userStatus = localStorage.getItem('isLoggedIn') === 'true';
@@ -35,18 +47,28 @@ const Booking = () => {
     document.title = `ParkolóGo | ${t.book_now}`;
   }, [currentLang, t.book_now]);
 
-  // Logika: Helyszín kiválasztása
+  // --- LOGIKA: KIVÁLASZTÁSOK KEZELÉSE ---
+
+  // Helyszín választás
   const handleZoneSelect = (zone) => {
     setSelectedHouse(zone);
-    setIsHouseOpen(false); // Bezárjuk az 1. lépést
+    setSelectedSpot(null); // Reseteljük a helyet, ha házat vált
+    setIsHouseOpen(false); // Becsukjuk az 1. lépést
     setIsVehicleOpen(true); // Kinyitjuk a 2. lépést
   };
 
-  // Logika: Jármű kiválasztása
+  // Jármű választás
   const handleVehicleSelect = (vehicle) => {
     setSelectedVehicle(vehicle);
-    setIsVehicleOpen(false); // Bezárjuk a 2. lépést
-    // Itt majd kinyitjuk a 3. lépést (Időpont választó)
+    setIsVehicleOpen(false); // Becsukjuk a 2. lépést
+    setIsSpotOpen(true);    // Kinyitjuk a 3. lépést
+  };
+
+  // Parkolóhely választás
+  const handleSpotSelect = (spot) => {
+    setSelectedSpot(spot);
+    setIsSpotOpen(false);   // Becsukjuk a 3. lépést
+    // Itt jöhet majd a 4. lépés (Időpont/Naptár) kinyitása
   };
 
   return (
@@ -59,13 +81,13 @@ const Booking = () => {
       
       <div className="flex-1 bg-white/70 backdrop-blur-[2px] flex flex-col min-h-0 overflow-hidden">
         <main className="flex-1 overflow-y-auto px-4 py-8">
-          <div className="max-w-6xl mx-auto space-y-6">
+          <div className="max-w-6xl mx-auto space-y-6 pb-20">
             
             <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center drop-shadow-sm">
               {t.book_now}
             </h1>
 
-            {/* 1. Lépés: Parkolóház választó */}
+            {/* 1. LÉPÉS: PARKOLÓHÁZ VÁLASZTÓ */}
             <ZoneSelector 
               zones={parkingZones}
               loading={zonesLoading}
@@ -77,26 +99,45 @@ const Booking = () => {
               t={t}
             />
 
-            {/* 2. Lépés: Jármű választó */}
+            {/* 2. LÉPÉS: JÁRMŰ VÁLASZTÓ */}
             {selectedHouse && (
-              <VehicleSelector 
-                vehicles={vehicles}
-                loading={vehiclesLoading}
-                selectedVehicle={selectedVehicle}
-                onSelect={handleVehicleSelect}
-                isOpen={isVehicleOpen}
-                setIsOpen={setIsVehicleOpen}
-                t={t}
-              />
+              <div className="animate-in fade-in slide-in-from-top duration-500">
+                <VehicleSelector 
+                  vehicles={vehicles}
+                  loading={vehiclesLoading}
+                  selectedVehicle={selectedVehicle}
+                  onSelect={handleVehicleSelect}
+                  isOpen={isVehicleOpen}
+                  setIsOpen={setIsVehicleOpen}
+                  t={t}
+                />
+              </div>
             )}
 
-            {/* Itt lesz majd a 3. Lépés: Időpont */}
-            {!isVehicleOpen && selectedVehicle && (
-              <div className="animate-in fade-in slide-in-from-bottom duration-500 p-6 text-center bg-green-50/50 rounded-2xl border-2 border-dashed border-green-400">
-                <p className="text-lg font-bold text-green-800 italic">
-                  Helyszín: {selectedHouse.name} | Jármű: {selectedVehicle.licensePlate}
+            {/* 3. LÉPÉS: PARKOLÓHELY VÁLASZTÓ (TÉGLALAPOK) */}
+            {selectedHouse && selectedVehicle && (
+              <div className="animate-in fade-in slide-in-from-top duration-500">
+                <SpotSelector 
+                  spots={spots}
+                  loading={spotsLoading}
+                  selectedSpot={selectedSpot}
+                  onSelect={handleSpotSelect}
+                  isOpen={isSpotOpen}
+                  setIsOpen={setIsSpotOpen}
+                  t={t}
+                />
+              </div>
+            )}
+
+            {/* ÖSSZESÍTŐ / KÖVETKEZŐ LÉPÉS INDIKÁTOR */}
+            {!isSpotOpen && selectedSpot && (
+              <div className="animate-bounce-in p-6 text-center bg-green-50/80 backdrop-blur-sm rounded-2xl border-2 border-dashed border-green-400 shadow-inner">
+                <p className="text-xl font-bold text-green-800">
+                  {selectedHouse.name} • {selectedVehicle.licensePlate} • {selectedSpot.spotNumber}. hely
                 </p>
-                <p className="text-gray-600 mt-1 uppercase text-xs tracking-widest font-bold">Jöhet a naptár!</p>
+                <p className="text-gray-600 mt-2 font-medium uppercase text-sm tracking-widest">
+                  Minden kész a foglalás véglegesítéséhez!
+                </p>
               </div>
             )}
 

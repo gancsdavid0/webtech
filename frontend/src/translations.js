@@ -83,7 +83,12 @@ export const translations = {
     selected: "Kiválasztva",
     choose_zone: "Válassz parkolózónát",
     vehicle: "Jármű",
-    select_vehicle: "Válaszd ki a járművet"
+    select_vehicle: "Válaszd ki a járművet",
+    parking_spot: "Parkolóhely",
+    choose_spot: "Válassz parkolóhelyet",
+    spot: "Hely",
+    free: "Szabad",
+    occupied: "Foglalt"
   },
 
   // Angol nyelv
@@ -169,7 +174,12 @@ export const translations = {
     selected: "Selected",
     choose_zone: "Choose parking zone",
     vehicle: "Vehicle",
-    select_vehicle: "Select your vehicle"
+    select_vehicle: "Select your vehicle",
+    parking_spot: "Parking spot",
+    choose_spot: "Choose a parking spot",
+    spot: "Spot",
+    free: "Free",
+    occupied: "Occupied"
   },
 
   // Japán nyelv
@@ -255,7 +265,12 @@ export const translations = {
     selected: "選択済み",
     choose_zone: "駐車ゾーンを選択してください",
     vehicle: "車両",
-    select_vehicle: "あなたの車両を選択してください"
+    select_vehicle: "あなたの車両を選択してください",
+    parking_spot: "駐車場",
+    choose_spot: "駐車場を選ぶ",
+    spot: "スポット",
+    free: "無料",
+    occupied: "忙しい"
   },
 
   // Indonéz nyelv
@@ -341,7 +356,12 @@ export const translations = {
     selected: "Terpilih",
     choose_zone: "Pilih zona parkir",
     vehicle: "Kendaraan",
-    select_vehicle: "Pilih kendaraan Anda"
+    select_vehicle: "Pilih kendaraan Anda",
+    parking_spot: "Tempat parkir",
+    choose_spot: "Pilih tempat parkir",
+    spot: "Tempat",
+    free: "Bebas",
+    occupied: "Sibuk"
   },
 
   // Német nyelv
@@ -427,6 +447,11 @@ export const translations = {
     selected: "Ausgewählt",
     choose_zone: "Parkzone wählen",
     vehicle: "Fahrzeug",
-    select_vehicle: "Wählen Sie Ihr Fahrzeug aus"
+    select_vehicle: "Wählen Sie Ihr Fahrzeug aus",
+    parking_spot: "Parkplatz",
+    choose_spot: "Wählen Sie einen Parkplatz",
+    spot: "Stelle",
+    free: "Frei",
+    occupied: "Beschäftigt"
   }
 };
