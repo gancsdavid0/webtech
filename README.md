@@ -53,6 +53,8 @@ npm run dev
 - A felhasználó meg tudja nézni a parkoló területeket (név, cím, leírás)
 - A rendszergazda meg tudja nézni a parkoló területeket, és igény esetén törölni azokat, vagy újakat létrehozni
 - A felhasználó meg tudja tekinteni a jáműveit, újakat hozzáadni vagy tötölni
+- A felhasználó tud parkolót foglalni, foglalásait megtekinteni és lemondani
+- A rendszergazda meg tudja nézni az összes foglalást és azok részleteit
 
 # Jelenleg elkészült oldalak
 - Főoldal
@@ -61,9 +63,10 @@ npm run dev
 - Sikeres bejelentkezés / regisztráció oldal
 - Hiba a bejelentkezéskor / regisztrációkor oldal
 - Felhasználói profil oldal
-- Admin oldal (Felhasználók kezelése, Parkolóterületek kezelése)
+- Admin oldal (Felhasználók kezelése, Parkolóterületek kezelése, Foglalások kezelése)
 - Parkoló területek oldal (Bejelentkezés nélkül is elérhető)
 - Járműveim oldal (Bejelentkezett felhasználó járműveinek listázása, hozzáadása, törlése)
+- Parkolófoglalás oldal
 
 # Elérhető nyelvek
 - Magyar
