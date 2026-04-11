@@ -99,7 +99,7 @@ const Booking = () => {
             <h2 className="text-4xl font-black text-gray-800 tracking-tight">{t.reservation_success}</h2>
             <p className="text-gray-600 text-lg">{t.detail}</p>
             <button 
-              onClick={() => window.location.href = '/my_reservations'}
+              onClick={() => window.location.href = '/my-bookings'}
               className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-blue-200"
             >
               {t.back_to_my_reservations}

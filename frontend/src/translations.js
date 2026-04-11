@@ -99,7 +99,10 @@ export const translations = {
     confirm_reservation: "Foglalás megerősítése",
     reservation_success: "Sikeres foglalás!",
     detail: "A parkolóhelyedet sikeresen fenntartottuk. Minden részletet megtalálsz a profilod alatt.",
-    back_to_my_reservations: "Vissza a foglalásaimhoz"
+    back_to_my_reservations: "Vissza a foglalásaimhoz",
+    no_reservation: "Még nincsen aktív foglalásod!",
+    cancel_reservation: "Lemondás",
+    confirm_cancel: "Biztos le szeretnéd mondani a foglalást?"
   },
 
   // Angol nyelv
@@ -201,7 +204,10 @@ export const translations = {
     confirm_reservation: "Confirm booking",
     reservation_success: "Successful booking!",
     detail: "Your parking space has been successfully reserved. You can find all the details under your profile.",
-    back_to_my_reservations: "Back to my reservations"
+    back_to_my_reservations: "Back to my reservations",
+    no_reservation: "You don't have any active reservations yet!",
+    cancel_reservation: "Cancel reservation",
+    confirm_cancel: "Are you sure you want to cancel your reservation?"
   },
 
   // Japán nyelv
@@ -303,7 +309,10 @@ export const translations = {
     confirm_reservation: "予約を確認する",
     reservation_success: "予約成功！",
     detail: "駐車スペースの予約が完了しました。詳細はプロフィールページをご覧ください。",
-    back_to_my_reservations: "予約に戻る"
+    back_to_my_reservations: "予約に戻る",
+    no_reservation: "まだ有効な予約がありません！",
+    cancel_reservation: "予約をキャンセルする",
+    confirm_cancel: "本当に予約をキャンセルしますか？"
   },
 
   // Indonéz nyelv
@@ -405,7 +414,10 @@ export const translations = {
     confirm_reservation: "Konfirmasikan pemesanan",
     reservation_success: "Pemesanan berhasil!",
     detail: "Tempat parkir Anda telah berhasil dipesan. Anda dapat menemukan semua detailnya di profil Anda.",
-    back_to_my_reservations: "Kembali ke reservasi saya"
+    back_to_my_reservations: "Kembali ke reservasi saya",
+    no_reservation: "Anda belum memiliki reservasi aktif!",
+    cancel_reservation: "Batalkan reservasi",
+    confirm_cancel: "Apakah Anda yakin ingin membatalkan reservasi Anda?"
   },
 
   // Német nyelv
@@ -507,6 +519,9 @@ export const translations = {
     confirm_reservation: "Buchung bestätigen",
     reservation_success: "Erfolgreiche Buchung!",
     detail: "Ihr Parkplatz wurde erfolgreich reserviert. Alle Details finden Sie in Ihrem Profil.",
-    back_to_my_reservations: "Zurück zu meinen Reservierungen"
+    back_to_my_reservations: "Zurück zu meinen Reservierungen",
+    no_reservation: "Sie haben noch keine aktiven Reservierungen!",
+    cancel_reservation: "Reservierung stornieren",
+    confirm_cancel: "Sind Sie sicher, dass Sie Ihre Reservierung stornieren möchten?"
   }
 };

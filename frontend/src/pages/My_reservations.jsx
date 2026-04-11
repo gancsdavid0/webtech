@@ -5,14 +5,14 @@ import backgroundImage from '../assets/images/home_bg.jpg';
 import Navbar from '../components/layout/Navbar.jsx';
 import Footer from '../components/layout/Footer.jsx';
 import { useUserReservations } from '../hooks/useUserReservations';
-import { Calendar, Car, MapPin, Clock, Loader2, AlertCircle, Info, LayoutGrid } from 'lucide-react';
+import { Calendar, Car, MapPin, Clock, Loader2, AlertCircle, Info, LayoutGrid, Trash2 } from 'lucide-react';
 
 const My_reservations = () => {
   const { currentLang } = useLanguage();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const t = translations[currentLang.code];
   
-  const { reservations, loading, error } = useUserReservations();
+  const { reservations, loading, error, cancelReservation } = useUserReservations();
 
   useEffect(() => {
     const userStatus = localStorage.getItem('isLoggedIn') === 'true';
@@ -20,7 +20,17 @@ const My_reservations = () => {
     document.title = `ParkolóGo | ${t.my_reservations}`;
   }, [currentLang, t.my_reservations]);
 
-  // Időpont formázó segédfüggvény
+  const handleCancel = async (id) => {
+    const confirmMessage = t.confirm_cancel
+
+    if (window.confirm(confirmMessage)) {
+      const result = await cancelReservation(id);
+      if (!result.success) {
+        alert(result.message);
+      }
+    }
+  };
+
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
     return new Date(dateString).toLocaleDateString(currentLang.code === 'hu' ? 'hu-HU' : 'en-US', options);
@@ -37,7 +47,7 @@ const My_reservations = () => {
       <div className="flex-1 bg-white/70 backdrop-blur-[2px] flex flex-col min-h-0 overflow-hidden">
         <main className="flex-1 overflow-y-auto px-4 py-8">
           <div className="max-w-5xl mx-auto pb-10">
-            <h1 className="text-4xl font-black text-gray-800 mb-8 text-center drop-shadow-sm uppercase italic">
+            <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center drop-shadow-sm">
               {t.my_reservations}
             </h1>
 
@@ -45,7 +55,7 @@ const My_reservations = () => {
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20">
                 <Loader2 className="animate-spin text-blue-600 mb-4" size={50} />
-                <p className="text-gray-600 font-medium italic">{t.loading}...</p>
+                <p className="text-gray-600 font-medium italic">{t.loading}</p>
               </div>
             ) : error ? (
               /* Hibaüzenet */
@@ -57,7 +67,7 @@ const My_reservations = () => {
               /* Nincs foglalás állapot */
               <div className="bg-white/80 p-12 rounded-3xl shadow-xl text-center flex flex-col items-center gap-4">
                 <Info size={60} className="text-blue-400" />
-                <h2 className="text-2xl font-bold text-gray-700 uppercase italic">Nincsenek még foglalásaid</h2>
+                <h2 className="text-2xl font-bold text-gray-700 uppercase">{t.no_reservation}</h2>
                 <button 
                   onClick={() => window.location.href = '/booking'}
                   className="mt-4 px-8 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg"
@@ -78,7 +88,6 @@ const My_reservations = () => {
                       <MapPin size={32} className="mb-2 opacity-80" />
                       <span className="text-[10px] uppercase font-bold opacity-70 tracking-widest">{t.parking_place}</span>
                       <h3 className="text-xl font-black text-center leading-tight">
-                        {/* Az általad küldött JSON-hoz igazítva */}
                         {res.spot?.parkingZone?.name || 'Parkolóház'}
                       </h3>
                     </div>
@@ -124,10 +133,11 @@ const My_reservations = () => {
                     {/* Jobb oldal: Lemondás gomb */}
                     <div className="p-6 bg-gray-50 md:w-1/5 flex items-center justify-center border-t md:border-t-0 md:border-l border-gray-100">
                       <button 
-                        className="text-red-500 font-bold hover:bg-red-50 px-4 py-2 rounded-xl transition-all text-sm uppercase tracking-wider"
-                        onClick={() => alert(`Lemondás funkció fejlesztés alatt (ID: ${res.id})`)}
+                        className="group flex flex-col items-center gap-1 text-red-500 font-bold hover:bg-red-50 px-4 py-3 rounded-2xl transition-all text-xs uppercase tracking-wider"
+                        onClick={() => handleCancel(res.id)}
                       >
-                        {t.cancel_reservation || "Lemondás"}
+                        <Trash2 size={20} className="group-hover:scale-110 transition-transform" />
+                        {t.cancel_reservation}
                       </button>
                     </div>
                   </div>
