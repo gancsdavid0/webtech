@@ -88,7 +88,18 @@ export const translations = {
     choose_spot: "Válassz parkolóhelyet",
     spot: "Hely",
     free: "Szabad",
-    occupied: "Foglalt"
+    occupied: "Foglalt",
+    when: "Mikorra foglalnál?",
+    arrive: "Érkezés",
+    leave: "Távozás",
+    confirm_date: "Időpont rögzítése",
+    reservation_details: "Foglalás adatai",
+    parking_place: "Parkolózóna",
+    time: "Idő",
+    confirm_reservation: "Foglalás megerősítése",
+    reservation_success: "Sikeres foglalás!",
+    detail: "A parkolóhelyedet sikeresen fenntartottuk. Minden részletet megtalálsz a profilod alatt.",
+    back_to_my_reservations: "Vissza a foglalásaimhoz"
   },
 
   // Angol nyelv
@@ -179,7 +190,18 @@ export const translations = {
     choose_spot: "Choose a parking spot",
     spot: "Spot",
     free: "Free",
-    occupied: "Occupied"
+    occupied: "Occupied",
+    when: "When would you like to book?",
+    arrive: "Arrive",
+    leave: "Leave",
+    confirm_date: "Confirm",
+    reservation_details: "Reservation details",
+    parking_place: "Parking zone",
+    time: "Time",
+    confirm_reservation: "Confirm booking",
+    reservation_success: "Successful booking!",
+    detail: "Your parking space has been successfully reserved. You can find all the details under your profile.",
+    back_to_my_reservations: "Back to my reservations"
   },
 
   // Japán nyelv
@@ -270,7 +292,18 @@ export const translations = {
     choose_spot: "駐車場を選ぶ",
     spot: "スポット",
     free: "無料",
-    occupied: "忙しい"
+    occupied: "忙しい",
+    when: "いつ予約をご希望ですか？",
+    arrive: "到着",
+    leave: "出発",
+    confirm_date: "確認する",
+    reservation_details: "予約詳細",
+    parking_place: "駐車ゾーン",
+    time: "時間",
+    confirm_reservation: "予約を確認する",
+    reservation_success: "予約成功！",
+    detail: "駐車スペースの予約が完了しました。詳細はプロフィールページをご覧ください。",
+    back_to_my_reservations: "予約に戻る"
   },
 
   // Indonéz nyelv
@@ -361,7 +394,18 @@ export const translations = {
     choose_spot: "Pilih tempat parkir",
     spot: "Tempat",
     free: "Bebas",
-    occupied: "Sibuk"
+    occupied: "Sibuk",
+    when: "Kapan Anda ingin melakukan pemesanan?",
+    arrive: "Kedatangan",
+    leave: "Meninggalkan",
+    confirm_date: "Mengonfirmasi",
+    reservation_details: "Detail reservasi",
+    parking_place: "Zona parkir",
+    time: "Waktu",
+    confirm_reservation: "Konfirmasikan pemesanan",
+    reservation_success: "Pemesanan berhasil!",
+    detail: "Tempat parkir Anda telah berhasil dipesan. Anda dapat menemukan semua detailnya di profil Anda.",
+    back_to_my_reservations: "Kembali ke reservasi saya"
   },
 
   // Német nyelv
@@ -452,6 +496,17 @@ export const translations = {
     choose_spot: "Wählen Sie einen Parkplatz",
     spot: "Stelle",
     free: "Frei",
-    occupied: "Beschäftigt"
+    occupied: "Beschäftigt",
+    when: "Wann möchten Sie buchen?",
+    arrive: "Ankunft",
+    leave: "Weggehen",
+    confirm_date: "Bestätigen",
+    reservation_details: "Reservierungsdetails",
+    parking_place: "Parkzone",
+    time: "Zeit",
+    confirm_reservation: "Buchung bestätigen",
+    reservation_success: "Erfolgreiche Buchung!",
+    detail: "Ihr Parkplatz wurde erfolgreich reserviert. Alle Details finden Sie in Ihrem Profil.",
+    back_to_my_reservations: "Zurück zu meinen Reservierungen"
   }
 };
