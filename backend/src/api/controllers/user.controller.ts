@@ -18,17 +18,25 @@ export class UserController {
     }
 
     async getById(req: any, res: Response) {
-        const id = parseInt(req.params.id);
-        const { id: currentUserId, role } = req.user;
+        try {
+            const id = parseInt(req.params.id);
+            if (Number.isNaN(id)) {
+                return res.status(400).json({ success: false, message: "Ervenytelen felhasznalo azonosito." });
+            }
 
-        if (role !== 'ADMIN' && currentUserId !== id) {
-            return res.status(403).json({ success: false, message: "Nincs jogosultságod a profil megtekintéséhez!" });
+            const { id: currentUserId, role } = req.user;
+
+            if (role !== 'ADMIN' && currentUserId !== id) {
+                return res.status(403).json({ success: false, message: "Nincs jogosultsagod a profil megtekintesehez!" });
+            }
+
+            const user = await this.repo.findById(id);
+            if (!user) return res.status(404).json({ success: false, message: "Felhasznalo nem talalhato" });
+
+            res.json(user);
+        } catch (err: any) {
+            res.status(500).json({ success: false, message: "Hiba a felhasznalo lekerdezese soran." });
         }
-
-        const user = await this.repo.findById(id);
-        if (!user) return res.status(404).json({ success: false, message: "Felhasználó nem található" });
-
-        res.json(user);
     }
 
     async update(req: any, res: Response) {

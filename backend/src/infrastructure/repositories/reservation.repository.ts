@@ -19,11 +19,18 @@ export class ReservationRepository implements IReservationRepository {
         vehicle: true
     };
 
-    update(id: number, data: Partial<CreateReservationData>): Promise<Reservation> {
-        throw new Error("Method not implemented.");
+    async update(id: number, data: Partial<CreateReservationData>): Promise<Reservation> {
+        return prisma.reservation.update({
+            where: { id },
+            data
+        });
     }
-    updateStatus(id: number, status: ReservationStatus): Promise<Reservation> {
-        throw new Error("Method not implemented.");
+
+    async updateStatus(id: number, status: ReservationStatus): Promise<Reservation> {
+        return prisma.reservation.update({
+            where: { id },
+            data: { status }
+        });
     }
     async findAllReservationsByUserId(userId: number): Promise<Reservation[]> {
         return prisma.reservation.findMany({

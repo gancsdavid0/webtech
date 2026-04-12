@@ -31,9 +31,8 @@ services:
       timeout: 5s
       retries: 5
 
-
   backend:
-    build: .
+    build: ./backend # Átírva ./backend-re, mert kiköltöztünk a gyökérbe
     container_name: parkolasfoglalo_backend
     ports:
       - "3000:3000"
@@ -41,6 +40,7 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/parkolasfoglalo?schema=public
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - JWT_SECRET=valami_nagyon_biztonsagos_titkos_kulcs
     command: >
       sh -c "npx prisma migrate deploy && 
              npx prisma db seed && 
@@ -50,15 +50,14 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    develop:
-      watch:
-        - action: sync
-          path: ./src
-          target: /app/src
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: package.json
+
+  frontend:
+    build: ./frontend
+    container_name: parkolasfoglalo_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:

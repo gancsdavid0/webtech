@@ -17,14 +17,20 @@ export class CreateReservationHandler {
             throw new Error("Érvénytelen dátum formátum! Kérlek, használj ISO formátumot (pl. 2026-03-10T10:00:00Z).");
         }
 
-        const overlapping = await this.repo.findOverLapping(spotId, start, end);
-        if (overlapping) throw new Error("A hely már foglalt!");
+        if (start >= end) {
+            throw new Error("A foglalás kezdete korábbi kell legyen a befejezésnél.");
+        }
 
         const spot = await prisma.parkingSpot.findUnique({
             where: { id: spotId },
             include: { parkingZone: { include: { prices: true } } }
         });
+
         if (!spot) throw new Error("A parkolóhely nem létezik.");
+        if (!spot.isActive) throw new Error("A parkolóhely jelenleg nem aktív.");
+
+        const overlapping = await this.repo.findOverLapping(spotId, start, end);
+        if (overlapping) throw new Error("A hely már foglalt!");
 
         if (vehicleId) {
             const vehicle = await prisma.vehicle.findUnique({

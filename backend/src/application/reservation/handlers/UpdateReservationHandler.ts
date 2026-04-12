@@ -13,12 +13,19 @@ export class UpdateReservationHandler {
         const start = command.startTime ?? existing.startTime;
         const end = command.endTime ?? existing.endTime;
 
-        // Ütközésvizsgálat (fontos: ne saját magával ütközzön!)
+        if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+            throw new Error("Érvénytelen dátum formátum!");
+        }
+
+        if (start >= end) {
+            throw new Error("A foglalás kezdete korábbi kell legyen a befejezésnél.");
+        }
+
         const overlap = await prisma.reservation.findFirst({
             where: {
                 spotId: existing.spotId,
                 status: ReservationStatus.ACTIVE,
-                id: { not: command.id }, // Magunkat kihagyjuk
+                id: { not: command.id },
                 OR: [{ startTime: { lt: end }, endTime: { gt: start } }]
             }
         });

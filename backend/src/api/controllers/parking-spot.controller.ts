@@ -12,12 +12,28 @@ export class ParkingSpotController {
     private deleteHandler = new DeleteParkingSpotHandler();
 
     async getAll(req: any, res: any) {
-        const spots = await this.repo.findAll();
-        res.json(spots);
+        try {
+            const spots = await this.repo.findAll();
+            res.json(spots);
+        } catch (e: any) {
+            res.status(500).json({ success: false, message: "Nem sikerult a parkolohelyek listazasa." });
+        }
     }
+
     async getById(req: any, res: any) {
-        const spot = await this.repo.findById(Number(req.params.id));
-        spot ? res.json(spot) : res.status(404).json({ message: "Nincs meg!" });
+        try {
+            const id = Number(req.params.id);
+            if (Number.isNaN(id)) {
+                return res.status(400).json({ success: false, message: "Ervenytelen ID formatum." });
+            }
+
+            const spot = await this.repo.findById(id);
+            return spot
+                ? res.json(spot)
+                : res.status(404).json({ success: false, message: "Parkolohely nem talalhato." });
+        } catch (e: any) {
+            res.status(500).json({ success: false, message: "Nem sikerult a parkolohely lekerdezese." });
+        }
     }
 
     async create(req: Request, res: Response) {
@@ -39,13 +55,17 @@ export class ParkingSpotController {
             const data = UpdateParkingSpotSchema.parse(req.body);
             const result = await this.updateHandler.handle(Number(req.params.id), data);
             res.json(result);
-        } catch (e: any) { res.status(400).json({ message: e.message }); }
+        } catch (e: any) {
+            res.status(400).json({ success: false, message: e.message });
+        }
     }
 
     async delete(req: any, res: any) {
         try {
             await this.deleteHandler.handle(Number(req.params.id));
             res.json({ message: "Törölve!" });
-        } catch (e: any) { res.status(400).json({ message: e.message }); }
+        } catch (e: any) {
+            res.status(400).json({ success: false, message: e.message });
+        }
     }
 }

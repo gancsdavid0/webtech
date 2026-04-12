@@ -45,7 +45,11 @@ export class AuthController {
                 errors: error.issues.map(i => ({ path: i.path, message: i.message }))
             });
         }
-        const errorMessage = error instanceof Error ? error.message : 'Ismeretlen hiba történt';
-        res.status(401).json({ success: false, message: errorMessage });
+        const errorMessage = error instanceof Error ? error.message : 'Ismeretlen hiba tortent';
+        const normalized = errorMessage.toLowerCase();
+        const status = normalized.includes('token') || normalized.includes('jelszo') || normalized.includes('bejelent')
+            ? 401
+            : 500;
+        res.status(status).json({ success: false, message: errorMessage });
     }
 }

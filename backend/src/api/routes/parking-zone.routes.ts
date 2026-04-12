@@ -8,7 +8,7 @@ const controller = new ParkingZoneController();
 
 routes.get('/', (req: Request, res: Response) => controller.getAll(req, res));
 routes.get('/:id', (req: Request, res: Response) => controller.getById(req, res));
-routes.delete('/:id', authenticate, authorize(['ADMIN']), (req: Request, res: Response) => controller.delete(req, res));
-routes.post('/', authenticate, authorize(['ADMIN']), (req: Request, res: Response) => controller.create(req, res));
+routes.delete('/:id', authenticate, authorize(['ADMIN', 'RECEPTION']), (req: Request, res: Response) => controller.delete(req, res));
+routes.post('/', authenticate, authorize(['ADMIN', 'RECEPTION']), (req: Request, res: Response) => controller.create(req, res));
 
 export default routes;

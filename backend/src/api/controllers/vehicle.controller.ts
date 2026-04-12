@@ -1,25 +1,47 @@
 import type {  Response } from 'express';
 import type {VehicleHandler} from "../../application/Vehicle/handlers/vehicle.handler.js";
+import { CreateVehicleSchema, UpdateVehicleSchema } from "../../domain/dtos/vehicle.dto.js";
+import { z } from "zod";
 
 export class VehicleController {
     constructor(private handler: VehicleHandler) {}
 
+    private resolveStatus(error: any) {
+        if (error instanceof z.ZodError) return 400;
+        const message = error instanceof Error ? error.message.toLowerCase() : '';
+        const normalized = message.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        if (normalized.includes('nem talalhato') || normalized.includes('not found')) return 404;
+        if (normalized.includes('jogosultsag') || normalized.includes('unauthorized') || normalized.includes('forbidden')) return 403;
+        if (normalized.includes('ervenytelen') || normalized.includes('invalid') || normalized.includes('validation')) return 400;
+        return 500;
+    }
+
     create = async (req: any, res: Response) => {
         try {
-            const vehicle = await this.handler.createVehicle(req.user.id, req.body);
+            const validated = CreateVehicleSchema.parse(req.body);
+            const vehicle = await this.handler.createVehicle(req.user.id, {
+                licensePlate: validated.licensePlate,
+                ownerId: req.user.id,
+                ...(validated.make !== undefined ? { make: validated.make } : {}),
+                ...(validated.model !== undefined ? { model: validated.model } : {})
+            });
             res.status(201).json(vehicle);
         } catch (error: any) {
-            res.status(403).json({ message: error.message });
+            res.status(this.resolveStatus(error)).json({ message: error.message });
         }
     };
 
     listByOwner = async (req: any, res: Response) => {
         try {
             const ownerId = parseInt(req.params.ownerId);
+            if (Number.isNaN(ownerId)) {
+                return res.status(400).json({ error: 'Ervenytelen tulajdonos azonosito.' });
+            }
+
             const vehicles = await this.handler.getOwnerVehicles(req.user.id, ownerId, req.user.role);
             res.json(vehicles);
         } catch (error: any) {
-            res.status(403).json({ message: error.message });
+            res.status(this.resolveStatus(error)).json({ message: error.message });
         }
     };
 
@@ -27,6 +49,16 @@ export class VehicleController {
         try {
             const vehicleId = parseInt(req.params.id);
             const currentUserId = req.user.id;
+            const validated = UpdateVehicleSchema.parse(req.body);
+            const updateData: { make?: string; model?: string } = {};
+
+            if (validated.make != null) {
+                updateData.make = validated.make;
+            }
+
+            if (validated.model != null) {
+                updateData.model = validated.model;
+            }
 
             if (isNaN(vehicleId)) {
                 return res.status(400).json({ error: 'Érvénytelen jármű azonosító.' });
@@ -35,7 +67,7 @@ export class VehicleController {
             const updatedVehicle = await this.handler.updateVehicle(
                 vehicleId,
                 currentUserId,
-                req.body
+                updateData
             );
 
             res.status(200).json({
@@ -44,15 +76,15 @@ export class VehicleController {
             });
 
         } catch (error: any) {
-            if (error.message.includes('nem található')) {
+            if (error.message.includes('nem talalhato')) {
                 return res.status(404).json({ error: error.message });
             }
 
-            if (error.message.includes('jogosultság')) {
+            if (error.message.includes('jogosultsag')) {
                 return res.status(403).json({ error: error.message });
             }
 
-            res.status(400).json({ error: error.message });
+            res.status(this.resolveStatus(error)).json({ error: error.message });
         }
     };
 
@@ -60,7 +92,10 @@ export class VehicleController {
         try {
             const vehicleId = parseInt(req.params.id);
 
-            console.log("User a kérésben:", req.user);
+            if (Number.isNaN(vehicleId)) {
+                return res.status(400).json({ error: 'Ervenytelen jarmu azonosito.' });
+            }
+
 
             if (!req.user) {
                 return res.status(401).json({ error: "Nincs azonosítva a felhasználó!" });
@@ -69,7 +104,7 @@ export class VehicleController {
             await this.handler.deleteVehicle(vehicleId, req.user.id);
             res.status(204).send();
         } catch (error: any) {
-            res.status(403).json({ error: error.message });
+            res.status(this.resolveStatus(error)).json({ error: error.message });
         }
     };
 }

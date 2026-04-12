@@ -11,7 +11,7 @@ routes.post('/', authenticate, (req: Request, res: Response) => controller.creat
 
 routes.get('/active', authenticate, (req: Request, res: Response) => controller.FindAllActiveReservationsByUserId(req, res));
 
-routes.get('/all', authenticate, authorize(['ADMIN']), (req: Request, res: Response) => controller.getAll(req, res));
+routes.get('/all', authenticate, authorize(['ADMIN', 'RECEPTION']), (req: Request, res: Response) => controller.getAll(req, res));
 
 routes.get('/:id', authenticate, (req: Request, res: Response) => controller.getById(req, res));
 
